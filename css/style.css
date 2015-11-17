@@ -1,0 +1,56 @@
+.left-panel {
+    background-color: #273F54;
+    filter: alpha(opacity=80);
+    /* IE */
+    -moz-opacity: 0.8;
+    /* Mozilla */
+    opacity: 0.8;
+    height: 100%;
+    color: white;
+    font-size: 13px;
+}
+.btnControl {
+    float: right;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.btnControl .btnLogin{
+    float: right;
+    border-bottom: 3px solid white;
+}
+.gamelogo1 {
+    background:url(../images/game1.png) no-repeat top left;
+    display: inline-block;
+    width: 417px;
+    height: 140px;
+}
+.gamelogo2 {
+    background:url(../images/game2.png) no-repeat top left;
+    display: inline-block;
+    width: 417px;
+    height: 140px;
+}
+.gamelogo3 {
+    background:url(../images/game3.png) no-repeat top left;
+    display: inline-block;
+    width: 417px;
+    height: 140px;
+}
+.sponsor1 {
+    background:url(../images/sponsor1.png) no-repeat top left;
+    display: inline-block;
+    width: 417px;
+    height: 140px;
+}
+.sponsor2 {
+    background:url(../images/sponsor2.png) no-repeat top left;
+    display: inline-block;
+    width: 417px;
+    height: 140px;
+}
+.listSponsor {
+    margin: 10px;
+}
+.listGame {
+    margin: 10px;
+}
