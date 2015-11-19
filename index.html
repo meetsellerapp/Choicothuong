@@ -63,7 +63,8 @@
 
         <div class="row">
             <div class="col-md-4 left-panel">
-                <img src="images/logo.png" alt="" style="text-align: center;margin-left: 80px"/>
+                <!--<img src="images/logo.png" alt="" style="text-align: center;margin-left: 80px"/>-->
+                <img id="imgProfile" src="" alt="" style="text-align: center;margin-left: 80px"/>
                 <div id="btnControl" class="btnControl"> 
                     <span class="btnLogin">Đăng nhập</span>
                 </div>
@@ -71,6 +72,7 @@
                     <span class="gamelogo1"></span>
                     <span class="gamelogo2"></span>
                     <span class="gamelogo3"></span>
+                    <span class="gamelogo3"><img src="https://graph.facebook.com/10203847952438218/picture?type=normal" /></span>
                 </div>
                 <div id="listSponsor" class="listSponsor">
                     <span class="sponsor1"></span>
@@ -131,8 +133,15 @@
                 
                 jQuery(document).ready(function ()
                 {
-                    console.log("aaaaa");
+                    var x = document.cookie;
+                    var arrCookie = x.split(";")
+                    var arrFB = arrCookie[1].split(":");
+                    var userId = arrFB[1];
+//                    var isOnline = $.cookie("isOnline");
+                    console.log("cookie" + x);
+                    console.log("aaaaa:" + userId);
                     $(".btnLogin").text("Đăng Xuất");
+                    $("#imgProfile").attr("src", "https://graph.facebook.com/"+ userId +"/picture?type=normal");
                 });
             }
 
