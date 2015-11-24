@@ -1,0 +1,23 @@
+{
+  "name": "angular modal service",
+  "description": "sample",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-modal-service": "~0.6.9",
+    "angular-animate": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
