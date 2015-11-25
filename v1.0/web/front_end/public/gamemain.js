@@ -11,11 +11,18 @@ jQuery(document).ready(function ()
         currentGame.top_score_id = snapshot.val().top_score_id;
         currentGame.top_score_time = snapshot.val().top_score_time;
     }
+    function setCookieGame() {
+        $.cookie("top_score", currentGame.top_score);
+        $.cookie("top_score_id", currentGame.top_score_id);
+        $.cookie("top_score_time", currentGame.top_score_time);
+        $.cookie("prize_number", currentGame.prize_number);
+        $.cookie("prize_str", currentGame.prize_str);
+    }
     function getGameData() {
         var ref = new Firebase("https://choicothuong.firebaseio.com/game");
         ref.orderByChild("source_url").equalTo("/egg").on("child_added", function (snapshot) {
             loadObjectGame(snapshot);
-            $.cookie("top_score", currentGame.top_score);
+            setCookieGame();
             console.log($.cookie("top_score"));
         });
     }
