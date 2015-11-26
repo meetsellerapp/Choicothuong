@@ -2,6 +2,7 @@ jQuery(document).ready(function ()
 {
     console.log("aaaaa");
     var currentGame = new Object();
+    var currentUser = new Object();
     function loadObjectGame(snapshot) {
         currentGame.name = snapshot.val().name;
         currentGame.prize_number = snapshot.val().prize_number;
@@ -10,6 +11,14 @@ jQuery(document).ready(function ()
         currentGame.top_score = snapshot.val().top_score;
         currentGame.top_score_id = snapshot.val().top_score_id;
         currentGame.top_score_time = snapshot.val().top_score_time;
+    }
+    function loadObjectUser(snapshot){
+        currentUser.name = snapshot.val().name;
+        currentUser.coin = snapshot.val().coin;
+        currentUser.avatar_url = snapshot.val().avatar_url;
+        currentUser.user_id = snapshot.val().user_id;
+        currentUser.top_score = snapshot.val().top_score;
+        currentUser.top_score_time = snapshot.val().top_score_time;
     }
     
     function toUSD(number) {
@@ -29,6 +38,22 @@ jQuery(document).ready(function ()
         $.cookie("prize_number", toUSD(topPrice));
         $.cookie("prize_str", currentGame.prize_str);
     }
+    function setCookieUser() {
+        $.cookie("Username", currentUser.name);
+        $.cookie("coin", toUSD(parseFloat(currentUser.coin)));
+        $.cookie("avatar_url", currentUser.avatar_url);
+        $.cookie("user_id", currentUser.user_id);
+        $.cookie("user_top_score", currentUser.top_score);
+        $.cookie("user_top_score_time", currentUser.top_score_time);
+    }
+    function getLoginUser() {
+        var ref = new Firebase("https://choicothuong.firebaseio.com/user");
+        ref.orderByChild("user_id").equalTo("10200921212271543").on("child_added", function (snapshot) {
+            console.log("avatar:" + snapshot.val().avatar_url);
+            loadObjectUser(snapshot);
+            setCookieUser();
+        });
+    }
     function getGameData() {
         var ref = new Firebase("https://choicothuong.firebaseio.com/game");
         ref.orderByChild("source_url").equalTo("/egg").on("child_added", function (snapshot) {
@@ -38,4 +63,5 @@ jQuery(document).ready(function ()
         });
     }
     getGameData();
+    getLoginUser();
 });
