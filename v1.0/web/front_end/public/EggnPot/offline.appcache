@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1448461714
+#1448501613
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -29,6 +29,10 @@ images/brokenegg-sheet0.png
 images/about-sheet0.png
 images/help-sheet0.png
 images/info2-sheet0.png
+images/ground2-sheet0.png
+images/bgtitle2-sheet0.png
+images/sprite-sheet0.png
+images/border2-sheet0.png
 media/pot.m4a
 media/pot.ogg
 media/throw.m4a
