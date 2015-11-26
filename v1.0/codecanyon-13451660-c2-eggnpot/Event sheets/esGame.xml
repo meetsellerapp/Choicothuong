@@ -703,7 +703,7 @@
                             <param id="0" name="name">&quot;prize_number&quot;</param>
                         </action>
                         <action id="0" name="Set text" sid="8782482672903387" type="txttopprize">
-                            <param id="0" name="Text">&quot;&quot; &amp; Cookie.value</param>
+                            <param id="0" name="Text">&quot;&quot; &amp; Cookie.value &amp; &quot;Đ&quot;</param>
                         </action>
                     </actions>
                 </event-block>

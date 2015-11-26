@@ -228,10 +228,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1248</x>
-                        <y>3936</y>
+                        <y>4224</y>
                         <z>0</z>
-                        <width>480</width>
-                        <height>480</height>
+                        <width>320</width>
+                        <height>320</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -254,10 +254,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1152</x>
-                        <y>3712</y>
+                        <x>1160</x>
+                        <y>4064</y>
                         <z>0</z>
-                        <width>352</width>
+                        <width>224</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -281,8 +281,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1152</x>
-                        <y>3904</y>
+                        <x>1184</x>
+                        <y>4192</y>
                         <z>0</z>
                         <width>192</width>
                         <height>32</height>
@@ -304,10 +304,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1248</x>
-                        <y>4096</y>
+                        <y>4320</y>
                         <z>0</z>
-                        <width>480</width>
-                        <height>160</height>
+                        <width>320</width>
+                        <height>128</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -319,7 +319,7 @@
                     <properties>
                         <text>Giải Thưởng</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial Rounded MT Bold,-32,400,0</font>
+                        <font>Arial Rounded MT Bold,-21,400,0</font>
                         <color>255,255,255</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Top</vertical-alignment>
@@ -330,8 +330,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1088</x>
-                        <y>4032</y>
+                        <x>1152</x>
+                        <y>4256</y>
                         <z>0</z>
                         <width>352</width>
                         <height>64</height>
@@ -357,8 +357,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1120</x>
-                        <y>3776</y>
+                        <x>1152</x>
+                        <y>4096</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
@@ -384,14 +384,36 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1088</x>
-                        <y>4096</y>
+                        <x>1120</x>
+                        <y>4288</y>
                         <z>0</z>
-                        <width>224</width>
+                        <width>448</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="border2" uid="37">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1184</x>
+                        <y>4160</y>
+                        <z>0</z>
+                        <width>140</width>
+                        <height>5</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
