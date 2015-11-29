@@ -117,16 +117,48 @@ jQuery(document).ready(function ()
             }
         });
     }
+    function renderListGame(data) {
+        var listGame = [];
+        var i = 1;
+        for (var key in data) {
+            
+            if (data.hasOwnProperty(key)) {
+                
+                listGame.push({
+                    index: i,
+                    bg_color : i % 3 === 0 ? "bg-color-green" : i % 3 === 1 ? "bg-color-orange" : "bg-color-red" , 
+                    name: data[key].name,
+                    image_url: data[key].image_url,
+                    prize_number: data[key].prize_number,
+                    prize_str: data[key].prize_str,
+                    source_url: data[key].source_url,
+                    top_score: data[key].top_score,
+                    top_score_id: data[key].top_score_id,
+                    top_score_time: data[key].top_score_time
+                });
+                
+            }
+            i++;
+        }
+        return listGame;
+    }
 
     //fetch all games
     function getallGames() {
-        var games = $firebaseArray(myFirebaseRef.child('game'));
-        games.$loaded().then(function(data) {
-            
-            var slickdiv = document.getElementById("gameslick");
-            slickdiv.style.display="";
-            WEPAPP.Slider.slick('.game-slick-slide .slick-slide-wrapper');
+        var games = myFirebaseRef.child('game');
+        // sync down from server
+        var listGame = [];
+        games.on('value', function (snap) {
+            var data = snap.val();
+            listGame = renderListGame(data)
+            var data = {};
+            data.listGame = listGame;
+            var template = $('#listGameTpl').html();
+            var html = Mustache.to_html(template, data);
+            $('#listGame').html(html);
         });
+
+//        list.splice(1, 1);
     }
 
 //    $scope.openGame = function(game){

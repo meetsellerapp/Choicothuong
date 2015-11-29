@@ -8,44 +8,44 @@ var WEPAPP = {};
 WEPAPP.Slider = {
     initData: function (element) {
         var sliderObj = $(element);
-        $.ajax({
-            url: "js/data.json",
-            dataType: 'json',
-            beforeSend: function (xhr) {
-                sliderObj.html('<span class="loading-progress"></span>')
-            },
-            success: function (data, textStatus, jqXHR) {
-                var html = "";
-                var i = 1;
-                $.each(data, function (index, item) {
-                    var style = WEPAPP.Slider.bgStyle(i);
-                    html += '<div>'
-                            + ' <div class="slick-slide-item">'
-                            + '    <div class="slick-slide-item-left">'
-                            + '         <img src="img/game-0.png"/>'
-                            + '    </div>'
-                            + '    <div class="slick-slide-item-right text-center bg-color-' + style + '">'
-                            + '        <div class="description">Giải thưởng hiện tại</div>'
-                            + '        <div class="amount">2.143.000đ</div>'
-                            + '        <div class="button-ctr">'
-                            + '            <button class="btn btn-warning hvr-radial-out">Chơi ngay</button>'
-                            + '       </div>'
-                            + '    </div>'
-                            + ' </div>'
-                            + '</div>';
-                    if (i === 3) {
-                        i = 0;
-                    }
-                    i++;
-                });
-                if (html !== '') {
-                    sliderObj.html(html);
-                    WEPAPP.Slider.slick(element);
-                } else {
-                    sliderObj.html("<p>Data not found.</p>");
-                }
-            }
-        });
+//        $.ajax({
+//            url: "js/data.json",
+//            dataType: 'json',
+//            beforeSend: function (xhr) {
+//                sliderObj.html('<span class="loading-progress"></span>')
+//            },
+//            success: function (data, textStatus, jqXHR) {
+//                var html = "";
+//                var i = 1;
+//                $.each(data, function (index, item) {
+//                    var style = WEPAPP.Slider.bgStyle(i);
+//                    html += '<div>'
+//                            + ' <div class="slick-slide-item">'
+//                            + '    <div class="slick-slide-item-left">'
+//                            + '         <img src="img/game-0.png"/>'
+//                            + '    </div>'
+//                            + '    <div class="slick-slide-item-right text-center bg-color-' + style + '">'
+//                            + '        <div class="description">Giải thưởng hiện tại</div>'
+//                            + '        <div class="amount">2.143.000đ</div>'
+//                            + '        <div class="button-ctr">'
+//                            + '            <button class="btn btn-warning hvr-radial-out">Chơi ngay</button>'
+//                            + '       </div>'
+//                            + '    </div>'
+//                            + ' </div>'
+//                            + '</div>';
+//                    if (i === 3) {
+//                        i = 0;
+//                    }
+//                    i++;
+//                });
+//                if (html !== '') {
+//                    sliderObj.html(html);
+//                    WEPAPP.Slider.slick(element);
+//                } else {
+//                    sliderObj.html("<p>Data not found.</p>");
+//                }
+//            }
+//        });
     },
     bgStyle: function (index) {
         var style = "";

@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        
+
         <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     </head>
     <body>
@@ -41,7 +41,7 @@
                                     <li role="presentation"><a href="#events" class="tab-events-event"  aria-controls="events" role="tab" data-toggle="tab"><span>Sự Kiện</span></a></li>
                                     <li role="presentation"><a href="#contact" class="tab-contact-event" aria-controls="contact" role="tab" data-toggle="tab"><span>Liên Hệ</span></a></li>
                                     <li role="presentation" id ="btnLogin"><a href="javascript:void(0)" 
-                                                               class="tab-login-event" aria-controls="login" role="tab" data-toggle="tab" >
+                                                                              class="tab-login-event" aria-controls="login" role="tab" data-toggle="tab" >
                                             <span id ="txtLoginStatus">Đăng Nhập</span>
                                         </a>
                                     </li>
@@ -58,7 +58,7 @@
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="game-hot">
                                         <div class="game-slick-slide">
-                                            <div class="slick-slide-wrapper"></div>
+                                            <div class="slick-slide-wrapper" id="listGame"></div>
                                             <div class="slick-ctr">
                                                 <div><button class="prev"><i class="fa fa-caret-up"></i></button></div>
                                                 <div class="slick-dots-ctr"> </div>
@@ -204,6 +204,7 @@
         <!--<script src="js/vendor/bootstrap-dialog.min.js"/>-->
         <script src="js/vendor/slick.min.js"></script>
         <script src="js/jquery.cookie.js"></script>    
+        <script src="js/mustache.js"></script>    
 
         <script src="js/main.js"></script>
         <script src="js/gamelist.js"></script>
@@ -225,5 +226,23 @@
                              ga('create', 'UA-XXXXX-X', 'auto');
                              ga('send', 'pageview');*/
         </script>
+        <div id="listGameTpl" style="display: none;">
+            <!--{{#listGame}}-->
+            <div class="slick-slide-item" id="{{index}}">
+                <div class="slick-slide-item-left">
+                    <img src="{{image_url}}" title="{{name}}"/>
+                </div>
+                <!-- green-->
+                <div class="slick-slide-item-right text-center {{bg_color}}">
+                    <div class="description">Giải thưởng hiện tại</div>
+                    <div class="amount">{{prize_str}}</div>
+                    <div class="button-ctr">
+                        <button class="btn btn-warning hvr-radial-out">Chơi ngay</button>
+                    </div>
+                </div>
+                
+            </div><!-- game template-->
+            <!--{{/listGame}}-->
+        </div>
     </body>
 </html>
