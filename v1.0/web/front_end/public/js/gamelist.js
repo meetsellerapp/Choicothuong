@@ -142,6 +142,15 @@ jQuery(document).ready(function ()
         }
         return listGame;
     }
+    function openGame() {
+        $(".btn-playGame").click(function() {
+           var idGame = $(this).data("id");
+           if (idGame === 1) {
+                console.log("open game");
+                $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
+           }
+        });
+    }
 
     //fetch all games
     function getallGames() {
@@ -156,6 +165,7 @@ jQuery(document).ready(function ()
             var template = $('#listGameTpl').html();
             var html = Mustache.to_html(template, data);
             $('#listGame').html(html);
+            openGame();
         });
 
 //        list.splice(1, 1);
