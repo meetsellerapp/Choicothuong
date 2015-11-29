@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        
+        <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -38,7 +40,18 @@
                                     <li role="presentation" class="active"><a href="#game-hot" aria-controls="game-hot" role="tab" data-toggle="tab"><span>Game HOT</span></a></li>
                                     <li role="presentation"><a href="#events" class="tab-events-event"  aria-controls="events" role="tab" data-toggle="tab"><span>Sự Kiện</span></a></li>
                                     <li role="presentation"><a href="#contact" class="tab-contact-event" aria-controls="contact" role="tab" data-toggle="tab"><span>Liên Hệ</span></a></li>
-                                    <li role="presentation"><a href="#login" class="tab-login-event" aria-controls="login" role="tab" data-toggle="tab"><span>Đăng Nhập</span></a></li>
+                                    <li role="presentation" id ="btnLogin"><a href="javascript:void(0)" 
+                                                               class="tab-login-event" aria-controls="login" role="tab" data-toggle="tab" >
+                                            <span id ="txtLoginStatus">Đăng Nhập</span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation" id="btnLogout" 
+                                        style="display: none">
+                                        <a href="javascript:void(0)" class="tab-login-event" aria-controls="logout" 
+                                           role="tab" data-toggle="tab">
+                                            <span id="span_login">Đăng Xuất</span>
+                                        </a>
+                                    </li>
                                 </ul>
 
                                 <!-- Tab panes -->
@@ -73,8 +86,8 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-8 content">
-                    <div class="content-wrapper">
-                        <img class="content-thumb" src="img/game-player.jpg"/>
+                    <div class="content-wrapper" id="gameContent">
+                        <!--<img class="content-thumb" src="img/game-player.jpg"/>-->
                     </div>
                 </div>
                 <!--</div>-->
@@ -190,8 +203,10 @@
         <script src="js/vendor/bootstrap.min.js"></script>
         <!--<script src="js/vendor/bootstrap-dialog.min.js"/>-->
         <script src="js/vendor/slick.min.js"></script>
+        <script src="js/jquery.cookie.js"></script>    
 
         <script src="js/main.js"></script>
+        <script src="js/gamelist.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

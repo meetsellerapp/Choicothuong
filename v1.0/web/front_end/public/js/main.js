@@ -194,15 +194,15 @@ jQuery(document).ready(function () {
     });
 
     /* Handle tab event */
-    jQuery('.tab-events-event, .tab-login-event').click(function () {
-        var content = '<div class="text-center"><p>Coming soon...</p></div>';
-        WEPAPP.Modal.alert({
-            obj: '#diaLogAlertModal',
-            content: content,
-            title: 'Message'
-        });
-        return false;
-    });
+//    jQuery('.tab-events-event, .tab-login-event').click(function () {
+//        var content = '<div class="text-center"><p>Coming soon...</p></div>';
+//        WEPAPP.Modal.alert({
+//            obj: '#diaLogAlertModal',
+//            content: content,
+//            title: 'Message'
+//        });
+//        return false;
+//    });
 
     /* Handle click on Lien He tab */
     jQuery('.tab-contact-event').click(function () {
