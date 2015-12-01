@@ -830,6 +830,16 @@
                                     <param id="0" name="Layer">0</param>
                                     <param id="1" name="Opacity">20</param>
                                 </action>
+                                <action id="0" name="Set Cookie" sid="7951334971299603" type="Cookie">
+                                    <param id="0" name="name">&quot;userScore&quot;</param>
+                                    <param id="1" name="value">&quot;&quot; &amp; score</param>
+                                    <param id="2" name="days">0</param>
+                                </action>
+                                <action id="0" name="Set Cookie" sid="108503985280655" type="Cookie">
+                                    <param id="0" name="name">&quot;userTimer&quot;</param>
+                                    <param id="1" name="value">&quot;&quot; &amp; gameTimer</param>
+                                    <param id="2" name="days">0</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
