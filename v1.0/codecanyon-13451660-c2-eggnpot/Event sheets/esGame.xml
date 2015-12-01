@@ -24,7 +24,7 @@
         <variable constant="0" name="potNums" sid="5905965488856067" static="0" type="number">0</variable>
         <comment>extra</comment>
         <variable constant="0" name="score" sid="8846974047488092" static="0" type="number">0</variable>
-        <variable constant="0" name="gameTimer" sid="9203877797478242" static="0" type="number">60</variable>
+        <variable constant="0" name="gameTimer" sid="9203877797478242" static="0" type="number">0</variable>
         <variable constant="0" name="gameINIT" sid="3192284905707338" static="0" type="number">0</variable>
         <comment></comment>
         <comment>All the objects that are to be created at runtime are destoyed.</comment>
@@ -640,7 +640,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Subtract from" sid="3185037495805438" type="System">
+                        <action id="-10" name="Add to" sid="6106865741230766" type="System">
                             <param id="0" name="Variable">gameTimer</param>
                             <param id="1" name="Value">1</param>
                         </action>
@@ -774,8 +774,8 @@
                         </condition>
                         <condition id="-14" name="Compare variable" sid="8889897099857227" type="System">
                             <param id="0" name="Variable">gameTimer</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">60</param>
                         </condition>
                     </conditions>
                     <actions />
