@@ -117,16 +117,33 @@ jQuery(document).ready(function ()
             }
         });
     }
+    function toUSD(number) {
+        var number = number.toString(),
+                dollars = number.split('.')[0],
+                cents = (number.split('.')[1] || '') + '00';
+        dollars = dollars.split('').reverse().join('')
+                .replace(/(\d{3}(?!$))/g, '$1.')
+                .split('').reverse().join('');
+        return dollars;
+    }
+    function setCookieGame(game) {
+        $.cookie("top_score", game.top_score);
+        $.cookie("top_score_id", game.top_score_id);
+        $.cookie("top_score_time", game.top_score_time);
+        var topPrice = parseFloat(game.prize_number);
+        $.cookie("prize_number", toUSD(topPrice));
+        $.cookie("prize_str", game.prize_str);
+    }
     function renderListGame(data) {
         var listGame = [];
         var i = 1;
         for (var key in data) {
-            
+
             if (data.hasOwnProperty(key)) {
-                
+
                 listGame.push({
                     index: i,
-                    bg_color : i % 3 === 0 ? "bg-color-green" : i % 3 === 1 ? "bg-color-orange" : "bg-color-red" , 
+                    bg_color: i % 3 === 0 ? "bg-color-green" : i % 3 === 1 ? "bg-color-orange" : "bg-color-red",
                     name: data[key].name,
                     image_url: data[key].image_url,
                     prize_number: data[key].prize_number,
@@ -136,19 +153,25 @@ jQuery(document).ready(function ()
                     top_score_id: data[key].top_score_id,
                     top_score_time: data[key].top_score_time
                 });
-                
+
             }
             i++;
         }
         return listGame;
     }
-    function openGame() {
-        $(".btn-playGame").click(function() {
-           var idGame = $(this).data("id");
-           if (idGame === 1) {
+    function openGame(listGame) {
+        $(".btn-playGame").click(function () {
+            var idGame = $(this).data("id");
+            if (idGame === 1) {
                 console.log("open game");
                 $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
-           }
+            }
+            $.each(listGame, function (key, value) {
+//                alert(key + ": " + value);
+                if (idGame === value.index) {
+                    setCookieGame(value);
+                }
+            });
         });
     }
 
@@ -159,13 +182,13 @@ jQuery(document).ready(function ()
         var listGame = [];
         games.on('value', function (snap) {
             var data = snap.val();
-            listGame = renderListGame(data)
+            listGame = renderListGame(data);
             var data = {};
             data.listGame = listGame;
             var template = $('#listGameTpl').html();
             var html = Mustache.to_html(template, data);
             $('#listGame').html(html);
-            openGame();
+            openGame(listGame);
         });
 
 //        list.splice(1, 1);
