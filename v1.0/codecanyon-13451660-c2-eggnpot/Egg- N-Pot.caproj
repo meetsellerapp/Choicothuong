@@ -602,6 +602,66 @@
             <plugin id="TiledBg" />
             <texture />
         </object-type>
+        <object-type name="Sprite2" sid="8452241453985302">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8754594835841872" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\programming\freelancer\Choicothuong\v1.0\codecanyon-13451660-c2-eggnpot\image\4.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="3477493433560501">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="txtusername" sid="1505042157666848">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Sprite3" sid="5313359866697572">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5856826537271128" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="useravatar" sid="5535482663996769">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8970809868240114" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite4" sid="668564500730182">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8304419177762431" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\programming\freelancer\Choicothuong\v1.0\codecanyon-13451660-c2-eggnpot\image\coin-us-dollar-icon.png">
+                        <collision-poly>
+                            <point x="0.166667" y="0.166667" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="txtusercoin" sid="6550501782358376">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="useravatarsmall" sid="9015102737033784">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1322893178109154" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>

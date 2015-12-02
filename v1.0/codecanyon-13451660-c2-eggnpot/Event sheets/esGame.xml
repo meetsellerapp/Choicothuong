@@ -680,7 +680,7 @@
                             <param id="0" name="Text">score</param>
                         </action>
                         <action id="0" name="Set text" sid="4191636324851738" type="timer">
-                            <param id="0" name="Text">gameTimer</param>
+                            <param id="0" name="Text">gameTimer &amp; &quot;sec&quot;</param>
                         </action>
                         <action id="0" name="Set Cookie" sid="6720869159624748" type="Cookie">
                             <param id="0" name="name">&quot;aa&quot;</param>
@@ -704,6 +704,29 @@
                         </action>
                         <action id="0" name="Set text" sid="8782482672903387" type="txttopprize">
                             <param id="0" name="Text">&quot;&quot; &amp; Cookie.value &amp; &quot;Đ&quot;</param>
+                        </action>
+                        <action id="2" name="Get Cookie" sid="2735025957845658" type="Cookie">
+                            <param id="0" name="name">&quot;user_name&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="213344697454017" type="txtusername">
+                            <param id="0" name="Text">&quot;&quot; &amp; Cookie.value</param>
+                        </action>
+                        <action id="2" name="Get Cookie" sid="885293852436989" type="Cookie">
+                            <param id="0" name="name">&quot;currentUserId&quot;</param>
+                        </action>
+                        <action id="10" name="Load image from URL" sid="8694518804527995" type="useravatar">
+                            <param id="0" name="URI">&quot;http://graph.facebook.com/&quot; &amp; Cookie.value &amp;&quot;/picture?type=normal&quot;</param>
+                            <param id="1" name="Size">1</param>
+                        </action>
+                        <action id="10" name="Load image from URL" sid="9670141118049313" type="useravatarsmall">
+                            <param id="0" name="URI">&quot;http://graph.facebook.com/&quot; &amp; Cookie.value &amp;&quot;/picture?type=normal&quot;</param>
+                            <param id="1" name="Size">1</param>
+                        </action>
+                        <action id="2" name="Get Cookie" sid="8657495560312718" type="Cookie">
+                            <param id="0" name="name">&quot;user_coin&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9101420041740999" type="txtusercoin">
+                            <param id="0" name="Text">&quot;&quot; &amp; Cookie.value</param>
                         </action>
                     </actions>
                 </event-block>
