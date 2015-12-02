@@ -55,7 +55,7 @@ jQuery(document).ready(function ()
             showLogout();
             initUserSession(authData);
             addNewUser(authData);
-            $.cookie("currentUserId" , $.cookie("sessionid"));
+            $.cookie("currentUserId", $.cookie("sessionid"));
             getCurrentUser();
         } else {
             console.log("Client unauthenticated.");
@@ -87,7 +87,7 @@ jQuery(document).ready(function ()
             removeSession();
         });
     }
-    function loadObjectUser(snapshot){
+    function loadObjectUser(snapshot) {
         currentUser.name = snapshot.val().name;
         currentUser.coin = snapshot.val().coin;
         currentUser.userAvatar = snapshot.val().avatar;
@@ -109,7 +109,7 @@ jQuery(document).ready(function ()
             setCookieUser();
         });
     }
-    
+
 
     function initUserSession(authData) {
         var userid = authData.facebook.id;
@@ -121,7 +121,7 @@ jQuery(document).ready(function ()
             });
             $.cookie("sessionid", userid);
             $.cookie("loggedin", "1");
-            
+
         }
         cursessionRef.on('child_removed', function (oldChildSnapshot) {
             myFirebaseRef.unauth();
@@ -201,7 +201,6 @@ jQuery(document).ready(function ()
             });
         });
     }
-
     //fetch all games
     function getallGames() {
         var games = myFirebaseRef.child('game');
@@ -218,42 +217,27 @@ jQuery(document).ready(function ()
             openGame(listGame);
         });
 
-//        list.splice(1, 1);
     }
-
-//    $scope.openGame = function(game){
-//        var mydiv = document.getElementById("gamecontent");
-//        var source_url = game.source_url;
-//        mydiv.innerHTML = "<iframe width='100%' height='100%' frameborder ='0' src =" + source_url +"></iframe>";
-//    }
-
-//    $scope.doLogin = function() {
-//        myFirebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
-//            if (error) {
-//                console.log("Login Failed!", error);
-//            } else {
-//                // the access token will allow us to make Open Graph API calls
-//
-//            }
-//        }, {
-//            remember: "sessionOnly",
-//            scope: "public_profile" // the permissions requested
-//        });
-//    }
-//
-//    $scope.checkGame = function(game,i) {
-//        if(game == null) {
-//            var slickitem = document.getElementById(i);
-//            slickitem.parentNode.removeChild(slickitem);
-//            return false;
-//        }
-//        return false;
-//    }
-//
-//    $scope.doLogout = function() {
-//        myFirebaseRef.unauth();
-//    }
+    function updateUserGame() {
+        var userScore = $.cookie("userScore");
+        var userTimer = $.cookie("userTimer");
+        var currentUserId = $.cookie("sessionid");
+        var ref = new Firebase("https://choicothuong.firebaseio.com/user/" + currentUserId);
+        if (currentUserId !== null && currentUserId !== "") {
+            if (userScore !== null && userScore !== "" && userTimer !== null && userTimer !== "") {
+                ref.update({
+                    "user_score": $.cookie("userScore"),
+                    "user_time": $.cookie("userTimer")
+                });
+            }
+        } 
+        
+    }
     initDBconnection();
     getallGames();
+    setInterval(function () {
+        updateUserGame();
+    }, 1000); // every 5 sec
+
 });
 

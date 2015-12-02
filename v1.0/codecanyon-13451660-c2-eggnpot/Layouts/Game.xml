@@ -642,28 +642,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="timerBG" uid="25">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>256</x>
-                        <y>32</y>
-                        <z>0</z>
-                        <width>180</width>
-                        <height>60</height>
-                        <depth>0</depth>
-                        <hotspotX>0.502732217</hotspotX>
-                        <hotspotY>0.507936537</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="indicator" uid="20">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -744,28 +722,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="scoreBG" uid="26">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>704</x>
-                        <y>32</y>
-                        <z>0</z>
-                        <width>180</width>
-                        <height>60</height>
-                        <depth>0</depth>
-                        <hotspotX>0.502732217</hotspotX>
-                        <hotspotY>0.507936537</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="title" uid="27">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -776,8 +732,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1184</x>
-                        <y>-160</y>
+                        <x>448</x>
+                        <y>32</y>
                         <z>0</z>
                         <width>378</width>
                         <height>70</height>

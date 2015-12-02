@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1448547438
+#1449068712
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -11,8 +11,6 @@ images/camera-sheet0.png
 images/eggshadow-sheet0.png
 images/ground-sheet0.png
 images/pot-sheet0.png
-images/pot2-sheet0.png
-images/pot2-sheet1.png
 images/bgtitle-sheet0.png
 images/tiledbackground.png
 images/indicator-sheet0.png
@@ -35,10 +33,10 @@ images/ground2-sheet0.png
 images/bgtitle2-sheet0.png
 images/sprite-sheet0.png
 images/border2-sheet0.png
-images/ground3-sheet0.png
-images/avatarnormal-sheet0.png
+images/tiledbackground2.png
 images/sprite2-sheet0.png
-images/border3-sheet0.png
+images/sprite3-sheet0.png
+images/sprite4-sheet0.png
 media/pot.m4a
 media/pot.ogg
 media/throw.m4a
