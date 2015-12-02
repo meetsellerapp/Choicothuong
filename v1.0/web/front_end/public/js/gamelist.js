@@ -4,6 +4,7 @@ jQuery(document).ready(function ()
     var FB;
     var myFirebaseRef;
     var cursessionRef;
+    var currentUser = new Object();
     var DB_PATH = "https://choicothuong.firebaseio.com";
     function doLogin() {
         myFirebaseRef.authWithOAuthPopup("facebook", function (error, authData) {
@@ -54,6 +55,8 @@ jQuery(document).ready(function ()
             showLogout();
             initUserSession(authData);
             addNewUser(authData);
+            $.cookie("currentUserId" , $.cookie("sessionid"));
+            getCurrentUser();
         } else {
             console.log("Client unauthenticated.");
             showLogin();
@@ -84,6 +87,29 @@ jQuery(document).ready(function ()
             removeSession();
         });
     }
+    function loadObjectUser(snapshot){
+        currentUser.name = snapshot.val().name;
+        currentUser.coin = snapshot.val().coin;
+        currentUser.userAvatar = snapshot.val().avatar;
+//        currentUser.top_score = snapshot.val().top_score;
+//        currentUser.top_score_time = snapshot.val().top_score_time;
+    }
+    function setCookieUser() {
+        $.cookie("user_name", currentUser.name);
+        $.cookie("user_coin", toUSD(parseFloat(currentUser.coin)));
+        $.cookie("user_avatar", currentUser.userAvatar);
+//        $.cookie("user_top_score", currentUser.top_score);
+//        $.cookie("user_top_score_time", currentUser.top_score_time);
+    }
+    function getCurrentUser() {
+        var ref = new Firebase("https://choicothuong.firebaseio.com/user");
+        var currentUserId = $.cookie("sessionid");
+        ref.orderByChild("id").equalTo(currentUserId).on("child_added", function (snapshot) {
+            loadObjectUser(snapshot);
+            setCookieUser();
+        });
+    }
+    
 
     function initUserSession(authData) {
         var userid = authData.facebook.id;
@@ -95,6 +121,7 @@ jQuery(document).ready(function ()
             });
             $.cookie("sessionid", userid);
             $.cookie("loggedin", "1");
+            
         }
         cursessionRef.on('child_removed', function (oldChildSnapshot) {
             myFirebaseRef.unauth();
