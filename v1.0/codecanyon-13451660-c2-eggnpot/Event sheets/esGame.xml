@@ -250,12 +250,12 @@
                             <param id="0" name="Instance variable">hasRun</param>
                             <param id="1" name="Value">1</param>
                         </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="5344671378538472" type="eggShadow">
+                            <param id="0" name="Jump strength">1200</param>
+                        </action>
                         <action id="-12" name="Set group active" sid="171086215500134" type="System">
                             <param id="0" name="Group name">&quot;everyTick&quot;</param>
                             <param id="1" name="State">1</param>
-                        </action>
-                        <action behavior="Platform" id="4" name="Set jump strength" sid="5344671378538472" type="eggShadow">
-                            <param id="0" name="Jump strength">1200</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -640,7 +640,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-10" name="Add to" sid="6106865741230766" type="System">
+                        <action id="-10" name="Add to" sid="2995443023029468" type="System">
                             <param id="0" name="Variable">gameTimer</param>
                             <param id="1" name="Value">1</param>
                         </action>
@@ -798,7 +798,7 @@
                         <condition id="-14" name="Compare variable" sid="8889897099857227" type="System">
                             <param id="0" name="Variable">gameTimer</param>
                             <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Value">60</param>
+                            <param id="2" name="Value">86400</param>
                         </condition>
                     </conditions>
                     <actions />

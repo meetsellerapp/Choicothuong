@@ -102,11 +102,18 @@ jQuery(document).ready(function ()
 //        $.cookie("user_top_score_time", currentUser.top_score_time);
     }
     function getCurrentUser() {
-        var ref = new Firebase("https://choicothuong.firebaseio.com/user");
         var currentUserId = $.cookie("sessionid");
-        ref.orderByChild("id").equalTo(currentUserId).on("child_added", function (snapshot) {
+        var ref = new Firebase("https://choicothuong.firebaseio.com/user/" + currentUserId);
+        ref.on('value', function (snapshot) {
             loadObjectUser(snapshot);
             setCookieUser();
+
+        });
+        var userGameref = new Firebase("https://choicothuong.firebaseio.com/usertopscore/"+ currentUserId +"/eggnpot");
+        userGameref.on('value', function (snap) {
+            console.log("user top score " + snap.val().score);
+            $.cookie("top_score", snap.val().score); //user top score
+            $.cookie("top_score_time", snap.val().time); // //user top score time
         });
     }
 
@@ -154,9 +161,9 @@ jQuery(document).ready(function ()
         return dollars;
     }
     function setCookieGame(game) {
-        $.cookie("top_score", game.top_score);
+//        $.cookie("top_score", game.top_score);
         $.cookie("top_score_id", game.top_score_id);
-        $.cookie("top_score_time", game.top_score_time);
+//        $.cookie("top_score_time", game.top_score_time);
         var topPrice = parseFloat(game.prize_number);
         $.cookie("prize_number", toUSD(topPrice));
         $.cookie("prize_str", game.prize_str);
@@ -222,16 +229,21 @@ jQuery(document).ready(function ()
         var userScore = $.cookie("userScore");
         var userTimer = $.cookie("userTimer");
         var currentUserId = $.cookie("sessionid");
-        var ref = new Firebase("https://choicothuong.firebaseio.com/user/" + currentUserId);
+        var ref = new Firebase('https://choicothuong.firebaseio.com/session/loggedin/10203895710552141');
         if (currentUserId !== null && currentUserId !== "") {
             if (userScore !== null && userScore !== "" && userTimer !== null && userTimer !== "") {
-                ref.update({
+                ref.set({
                     "user_score": $.cookie("userScore"),
                     "user_time": $.cookie("userTimer")
                 });
+                
+//                ref.set({
+//                    "user_score": $.cookie("userScore"),
+//                    "user_time": $.cookie("userTimer")
+//                });
             }
-        } 
-        
+        }
+
     }
     initDBconnection();
     getallGames();
