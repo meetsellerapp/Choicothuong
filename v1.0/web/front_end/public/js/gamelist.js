@@ -109,7 +109,7 @@ jQuery(document).ready(function ()
             setCookieUser();
 
         });
-        var userGameref = new Firebase("https://choicothuong.firebaseio.com/usertopscore/"+ currentUserId +"/eggnpot");
+        var userGameref = new Firebase("https://choicothuong.firebaseio.com/usertopscore/" + currentUserId + "/eggnpot");
         userGameref.on('value', function (snap) {
             console.log("user top score " + snap.val().score);
             $.cookie("top_score", snap.val().score); //user top score
@@ -193,12 +193,27 @@ jQuery(document).ready(function ()
         }
         return listGame;
     }
+    function updateUserCoin(newCoin) {
+        var currentUserId = $.cookie("sessionid");
+        var ref = new Firebase('https://choicothuong.firebaseio.com/user/' + currentUserId);
+        ref.update({coin: newCoin});
+    }
     function openGame(listGame) {
         $(".btn-playGame").click(function () {
             var idGame = $(this).data("id");
             if (idGame === 1) {
-                console.log("open game");
-                $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
+                
+//              
+                $("#chooseGameType").dialog({
+                    width : 600,
+                    height: 400,
+                    position : { my: "center", at: "center", of: window },
+                    overlay: { 
+                        opacity: 0.2, 
+                        background: "black" 
+                    },
+                    modal : true
+                });
             }
             $.each(listGame, function (key, value) {
 //                alert(key + ": " + value);
@@ -206,6 +221,20 @@ jQuery(document).ready(function ()
                     setCookieGame(value);
                 }
             });
+        });
+        $("#btnPlayFree").click(function() {
+            console.log("open game");
+            $("#chooseGameType").dialog("close");
+            $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
+            $.cookie("playType" , "free");
+        });
+        $("#btnPlayCoin").click(function() {
+            console.log("open game");
+            $("#chooseGameType").dialog("close");
+            $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
+            $.cookie("playType" , "coin");
+            var newcoin = parseInt(currentUser.coin) -100;
+            updateUserCoin(newcoin.toString());
         });
     }
     //fetch all games
@@ -236,7 +265,7 @@ jQuery(document).ready(function ()
                     "user_score": $.cookie("userScore"),
                     "user_time": $.cookie("userTimer")
                 });
-                
+
 //                ref.set({
 //                    "user_score": $.cookie("userScore"),
 //                    "user_time": $.cookie("userTimer")

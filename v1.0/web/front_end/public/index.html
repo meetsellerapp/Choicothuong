@@ -9,13 +9,18 @@
         <title>Chơi Có Thưởng</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>');</script>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/hover-min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/jquery-ui.theme.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
 
         <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     </head>
@@ -197,8 +202,7 @@
                 </div>
             </div>
         </div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>');</script>
+
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <!--<script src="js/vendor/bootstrap-dialog.min.js"/>-->
@@ -228,21 +232,28 @@
         </script>
         <div id="listGameTpl" style="display: none;">
             <!--{{#listGame}}-->
-            <div class="slick-slide-item" id="{{index}}">
-                <div class="slick-slide-item-left">
-                    <img src="{{image_url}}" title="{{name}}"/>
-                </div>
-                <!-- green-->
-                <div class="slick-slide-item-right text-center {{bg_color}}">
-                    <div class="description">Giải thưởng hiện tại</div>
-                    <div class="amount">{{prize_str}}</div>
-                    <div class="button-ctr">
-                        <button class="btn btn-warning hvr-radial-out btn-playGame" data-id="{{index}}">Chơi ngay</button>
+            <div>
+                <div class="slick-slide-item" id="{{index}}">
+                    <div class="slick-slide-item-left" style="margin-bottom: 20px;">
+                        <img src="{{image_url}}" title="{{name}}"/>
                     </div>
-                </div>
-                
-            </div><!-- game template-->
+                    <!-- green-->
+                    <div class="slick-slide-item-right text-center {{bg_color}}">
+                        <div class="description">Giải thưởng hiện tại</div>
+                        <div class="amount">{{prize_str}}</div>
+                        <div class="button-ctr">
+                            <button class="btn btn-warning hvr-radial-out btn-playGame" data-id="{{index}}">Chơi ngay</button>
+                        </div>
+                    </div>
+
+                </div><!-- game template-->
+            </div>
+
             <!--{{/listGame}}-->
+        </div>
+        <div id= "chooseGameType" class="">
+            <img src="img/playfree.png" id="btnPlayFree"/>
+            <img src="img/playcoin.png" id="btnPlayCoin"/>
         </div>
     </body>
 </html>
