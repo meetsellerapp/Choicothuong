@@ -107,6 +107,7 @@ WEPAPP.Modal = {
         if ($('body').find('.modal.modal-open').length < 1) {
             this.hideBackdrop();
         }
+        $( ".modal-body-content" ).empty();
         return false;
     },
     showBackdrop: function () {
@@ -130,6 +131,17 @@ WEPAPP.Modal = {
         }
         obj.find('.modal-body-content').html(options.content);
         this.alertPosition(options.obj);
+        obj.addClass('modal-open');
+        obj.fadeIn();
+    },
+    alertFullSize: function (options) {
+        this.showBackdrop();
+        var obj = $(options.obj);
+        if (typeof options.title !== "undefined" && options.title !== '') {
+            options.content = '<h2 class="modal-title"><span>' + options.title + '</span></h2>' + options.content;
+        }
+        obj.find('.modal-body-content').html(options.content);
+        this.resize(options.obj);
         obj.addClass('modal-open');
         obj.fadeIn();
     },
@@ -164,7 +176,7 @@ WEPAPP.Modal = {
             'margin-left': sidebarWidth
         });
         obj.find('.modal-dialog .modal-body-content').css({
-            height: windowHeight - 30
+            height: windowHeight - 100
         });
     }
 

@@ -202,17 +202,17 @@ jQuery(document).ready(function ()
         $(".btn-playGame").click(function () {
             var idGame = $(this).data("id");
             if (idGame === 1) {
-                
+
 //              
                 $("#chooseGameType").dialog({
-                    width : 600,
+                    width: 600,
                     height: 400,
-                    position : { my: "center", at: "center", of: window },
-                    overlay: { 
-                        opacity: 0.2, 
-                        background: "black" 
+                    position: {my: "center", at: "center", of: window},
+                    overlay: {
+                        opacity: 0.2,
+                        background: "black"
                     },
-                    modal : true
+                    modal: true
                 });
             }
             $.each(listGame, function (key, value) {
@@ -222,18 +222,28 @@ jQuery(document).ready(function ()
                 }
             });
         });
-        $("#btnPlayFree").click(function() {
-            console.log("open game");
+        $("#btnPlayFree").click(function () {
+//            console.log("open game");
             $("#chooseGameType").dialog("close");
-            $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
-            $.cookie("playType" , "free");
+//            $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
+//            $.cookie("playType" , "free");
+            var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
+//            WEPAPP.Modal.alert({
+//                obj: '#diaLogAlertModal',
+//                content: content
+//            });
+//              WEPAPP.Modal.fullViewDialog('#diaLogModal');
+            WEPAPP.Modal.alertFullSize({
+                obj: '#diaLogAlertModal',
+                content: content
+            });
         });
-        $("#btnPlayCoin").click(function() {
+        $("#btnPlayCoin").click(function () {
             console.log("open game");
             $("#chooseGameType").dialog("close");
             $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
-            $.cookie("playType" , "coin");
-            var newcoin = parseInt(currentUser.coin) -100;
+            $.cookie("playType", "coin");
+            var newcoin = parseInt(currentUser.coin) - 100;
             updateUserCoin(newcoin.toString());
         });
     }
