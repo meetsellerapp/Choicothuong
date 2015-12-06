@@ -223,25 +223,26 @@ jQuery(document).ready(function ()
             });
         });
         $("#btnPlayFree").click(function () {
-//            console.log("open game");
             $("#chooseGameType").dialog("close");
-//            $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
-//            $.cookie("playType" , "free");
+            $.cookie("playType", "free");
             var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
-//            WEPAPP.Modal.alert({
+//            WEPAPP.Modal.alertFullSize({
 //                obj: '#diaLogAlertModal',
 //                content: content
 //            });
-//              WEPAPP.Modal.fullViewDialog('#diaLogModal');
+            
+            WEPAPP.Modal.alertWithoutRender({
+                obj: '#diaWinAlertModal',
+                content: ""
+            });
+        });
+        $("#btnPlayCoin").click(function () {
+            $("#chooseGameType").dialog("close");
+            var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
             WEPAPP.Modal.alertFullSize({
                 obj: '#diaLogAlertModal',
                 content: content
             });
-        });
-        $("#btnPlayCoin").click(function () {
-            console.log("open game");
-            $("#chooseGameType").dialog("close");
-            $('#gameContent').html("<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>");
             $.cookie("playType", "coin");
             var newcoin = parseInt(currentUser.coin) - 100;
             updateUserCoin(newcoin.toString());

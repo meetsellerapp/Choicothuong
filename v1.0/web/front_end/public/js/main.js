@@ -134,6 +134,17 @@ WEPAPP.Modal = {
         obj.addClass('modal-open');
         obj.fadeIn();
     },
+    alertWithoutRender: function (options) {
+        this.showBackdrop();
+        var obj = $(options.obj);
+        if (typeof options.title !== "undefined" && options.title !== '') {
+            options.content = '<h2 class="modal-title"><span>' + options.title + '</span></h2>' + options.content;
+        }
+//        obj.find('.modal-body-content').html(options.content);
+        this.alertPosition(options.obj);
+        obj.addClass('modal-open');
+        obj.fadeIn();
+    },
     alertFullSize: function (options) {
         this.showBackdrop();
         var obj = $(options.obj);

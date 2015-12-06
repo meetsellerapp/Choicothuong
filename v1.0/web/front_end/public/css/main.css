@@ -414,6 +414,18 @@ img{
 .hide {
     display: none;
 }
+.cornertext {
+    border-radius: 15px;
+    background: #3959A1;
+    padding-top: 10px; 
+    width: 400px;
+    height: 50px; 
+    text-align: center;
+    color: white;
+    margin-left: 80px;
+    font-size: 22px;
+    font-weight: bold;
+}
 #chooseGameType {
     text-align: center;
     vertical-align: middle;
@@ -422,6 +434,11 @@ img{
     opacity: 0.6;
     -moz-opacity: 0.6;
     z-index: 100;
+}
+.txtWinText{
+    text-align: center;
+    font-size: 18px;
+    margin-left: 40px;
 }
 .ui-dialog-titlebar {display:none}
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
