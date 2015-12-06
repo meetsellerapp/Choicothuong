@@ -283,7 +283,7 @@ img{
     z-index: 10;
 }
 #diaLogAlertModal .modal-content {
-    background-color:  lightblue;
+    background-color:  #000000;
 }
 #diaLogModal .modal-dialog .modal-top {
     background: #4667ab none repeat scroll 0 0;
@@ -414,9 +414,21 @@ img{
 .hide {
     display: none;
 }
-.cornertext {
+.win-cornertext {
     border-radius: 15px;
     background: #3959A1;
+    padding-top: 10px; 
+    width: 400px;
+    height: 50px; 
+    text-align: center;
+    color: white;
+    margin-left: 80px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.loose-cornertext {
+    border-radius: 15px;
+    background: #ed1c24;
     padding-top: 10px; 
     width: 400px;
     height: 50px; 

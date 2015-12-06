@@ -198,6 +198,18 @@ jQuery(document).ready(function ()
         var ref = new Firebase('https://choicothuong.firebaseio.com/user/' + currentUserId);
         ref.update({coin: newCoin});
     }
+    function openWinDialog() {
+        WEPAPP.Modal.alertWithoutRender({
+            obj: '#diaWinAlertModal',
+            content: ""
+        });
+    }
+    function openLooseDialog() {
+        WEPAPP.Modal.alertWithoutRender({
+            obj: '#diaLooseAlertModal',
+            content: ""
+        });
+    }
     function openGame(listGame) {
         $(".btn-playGame").click(function () {
             var idGame = $(this).data("id");
@@ -226,14 +238,9 @@ jQuery(document).ready(function ()
             $("#chooseGameType").dialog("close");
             $.cookie("playType", "free");
             var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
-//            WEPAPP.Modal.alertFullSize({
-//                obj: '#diaLogAlertModal',
-//                content: content
-//            });
-            
-            WEPAPP.Modal.alertWithoutRender({
-                obj: '#diaWinAlertModal',
-                content: ""
+            WEPAPP.Modal.alertFullSize({
+                obj: '#diaLogAlertModal',
+                content: content
             });
         });
         $("#btnPlayCoin").click(function () {
@@ -272,15 +279,18 @@ jQuery(document).ready(function ()
         var ref = new Firebase('https://choicothuong.firebaseio.com/session/loggedin/10203895710552141');
         if (currentUserId !== null && currentUserId !== "") {
             if (userScore !== null && userScore !== "" && userTimer !== null && userTimer !== "") {
-                ref.set({
-                    "user_score": $.cookie("userScore"),
-                    "user_time": $.cookie("userTimer")
-                });
+//                ref.set({
+//                    "user_score": $.cookie("userScore"),
+//                    "user_time": $.cookie("userTimer")
+//                });
 
 //                ref.set({
 //                    "user_score": $.cookie("userScore"),
 //                    "user_time": $.cookie("userTimer")
 //                });
+                openWinDialog();
+                $.cookie("userScore", "");
+                $.cookie("userTimer", "");
             }
         }
 
