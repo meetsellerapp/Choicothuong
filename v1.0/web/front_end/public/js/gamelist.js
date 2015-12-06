@@ -198,17 +198,23 @@ jQuery(document).ready(function ()
         var ref = new Firebase('https://choicothuong.firebaseio.com/user/' + currentUserId);
         ref.update({coin: newCoin});
     }
+    function removeUserScoreCookie() {
+        $.cookie("userScore", "");
+        $.cookie("userTimer", "");
+    }
     function openWinDialog() {
         WEPAPP.Modal.alertWithoutRender({
             obj: '#diaWinAlertModal',
             content: ""
         });
+        removeUserScoreCookie();
     }
     function openLooseDialog() {
         WEPAPP.Modal.alertWithoutRender({
             obj: '#diaLooseAlertModal',
             content: ""
         });
+        removeUserScoreCookie();
     }
     function openGame(listGame) {
         $(".btn-playGame").click(function () {
@@ -289,8 +295,7 @@ jQuery(document).ready(function ()
 //                    "user_time": $.cookie("userTimer")
 //                });
                 openWinDialog();
-                $.cookie("userScore", "");
-                $.cookie("userTimer", "");
+//                
             }
         }
 
