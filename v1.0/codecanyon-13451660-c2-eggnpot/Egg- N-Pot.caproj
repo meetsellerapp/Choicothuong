@@ -34,7 +34,7 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>1500</width>
+        <width>1350</width>
         <height>960</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
@@ -659,6 +659,14 @@
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1322893178109154" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="border3" sid="8432418156637111">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4389155207927266" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
