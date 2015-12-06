@@ -49,35 +49,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ground" uid="6">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>480</x>
-                        <y>4448</y>
-                        <z>0</z>
-                        <width>608</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="border" uid="23">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -252,6 +223,35 @@
                         <opacity>0.600000024</opacity>
                     </world>
                 </instance>
+                <instance type="ground" uid="6">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>480</x>
+                        <y>4448</y>
+                        <z>0</z>
+                        <width>768</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -282,10 +282,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>480</x>
-                        <y>2304</y>
+                        <y>2256</y>
                         <z>0</z>
                         <width>640</width>
-                        <height>4480</height>
+                        <height>4448</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -788,35 +788,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ground" uid="16">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>992</x>
-                        <y>704</y>
-                        <z>0</z>
-                        <width>320</width>
-                        <height>320</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="lblgiaithuong" uid="35">
                     <properties>
                         <text>Kỷ lục hiện tại</text>
@@ -935,8 +906,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>960</x>
-                        <y>704</y>
+                        <x>887</x>
+                        <y>770</y>
                         <z>0</z>
                         <width>448</width>
                         <height>64</height>
@@ -1034,7 +1005,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
-                        <y>96</y>
+                        <y>64</y>
                         <z>0</z>
                         <width>224</width>
                         <height>64</height>
@@ -1104,8 +1075,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>960</x>
-                        <y>128</y>
+                        <x>951</x>
+                        <y>114</y>
                         <z>0</z>
                         <width>192</width>
                         <height>32</height>
@@ -1134,7 +1105,7 @@
                         <x>960</x>
                         <y>384</y>
                         <z>0</z>
-                        <width>53</width>
+                        <width>64</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
