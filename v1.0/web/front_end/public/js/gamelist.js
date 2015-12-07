@@ -19,6 +19,16 @@ jQuery(document).ready(function ()
             scope: "public_profile" // the permissions requested
         });
     }
+    function removeAllCookies() {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
     function doLogout() {
         myFirebaseRef.unauth();
     }
@@ -180,7 +190,7 @@ jQuery(document).ready(function ()
                     bg_color: i % 3 === 0 ? "bg-color-green" : i % 3 === 1 ? "bg-color-orange" : "bg-color-red",
                     name: data[key].name,
                     image_url: data[key].image_url,
-                    prize_number: data[key].prize_number,
+                    prize_number: toUSD(data[key].prize_number),
                     prize_str: data[key].prize_str,
                     source_url: data[key].source_url,
                     top_score: data[key].top_score,
@@ -216,49 +226,51 @@ jQuery(document).ready(function ()
         });
         removeUserScoreCookie();
     }
+    function openChoosePlayType() {
+        WEPAPP.Modal.alertWithoutRender({
+            obj: '#diaChoosePlayTypeModal',
+            content: ""
+        });
+    }
     function openGame(listGame) {
         $(".btn-playGame").click(function () {
             var idGame = $(this).data("id");
             if (idGame === 1) {
-
-//              
-                $("#chooseGameType").dialog({
-                    width: 600,
-                    height: 400,
-                    position: {my: "center", at: "center", of: window},
-                    overlay: {
-                        opacity: 0.2,
-                        background: "black"
-                    },
-                    modal: true
-                });
+                openChoosePlayType();
             }
             $.each(listGame, function (key, value) {
-//                alert(key + ": " + value);
                 if (idGame === value.index) {
                     setCookieGame(value);
                 }
             });
         });
         $("#btnPlayFree").click(function () {
-            $("#chooseGameType").dialog("close");
+            WEPAPP.Modal.closeDialog(this);
             $.cookie("playType", "free");
             var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
             WEPAPP.Modal.alertFullSize({
                 obj: '#diaLogAlertModal',
                 content: content
             });
+
         });
         $("#btnPlayCoin").click(function () {
-            $("#chooseGameType").dialog("close");
-            var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
-            WEPAPP.Modal.alertFullSize({
-                obj: '#diaLogAlertModal',
-                content: content
-            });
-            $.cookie("playType", "coin");
-            var newcoin = parseInt(currentUser.coin) - 100;
-            updateUserCoin(newcoin.toString());
+            WEPAPP.Modal.closeDialog(this);
+            var currentUserId = $.cookie("sessionid");
+            if (typeof currentUserId === "undefined" || currentUserId === "") {
+                alert ("đăng nhập trước khi chơi thật");
+            } else {
+                var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
+                WEPAPP.Modal.alertFullSize({
+                    obj: '#diaLogAlertModal',
+                    content: content
+                });
+                $.cookie("playType", "coin");
+                var newcoin = parseInt(currentUser.coin) - 100;
+                updateUserCoin(newcoin.toString());
+            }
+
+
         });
     }
     //fetch all games
@@ -282,9 +294,9 @@ jQuery(document).ready(function ()
         var userScore = $.cookie("userScore");
         var userTimer = $.cookie("userTimer");
         var currentUserId = $.cookie("sessionid");
-        var ref = new Firebase('https://choicothuong.firebaseio.com/session/loggedin/10203895710552141');
-        if (currentUserId !== null && currentUserId !== "") {
-            if (userScore !== null && userScore !== "" && userTimer !== null && userTimer !== "") {
+        var ref = new Firebase('https://choicothuong.firebaseio.com/session/loggedin/' + currentUserId);
+        if (typeof currentUserId !== "undefined" && currentUserId !== "") {
+            if (typeof userScore !== "undefined" && userScore !== "" && typeof userTimer !== "undefined" && userTimer !== "") {
 //                ref.set({
 //                    "user_score": $.cookie("userScore"),
 //                    "user_time": $.cookie("userTimer")
@@ -305,6 +317,6 @@ jQuery(document).ready(function ()
     setInterval(function () {
         updateUserGame();
     }, 1000); // every 5 sec
-
+    removeAllCookies();
 });
 

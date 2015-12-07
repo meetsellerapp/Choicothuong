@@ -411,6 +411,9 @@ img{
     margin-bottom: 5px;
 
 }
+#diaChoosePlayTypeModal .modal-content {
+    background-color: transparent; 
+}
 .hide {
     display: none;
 }
