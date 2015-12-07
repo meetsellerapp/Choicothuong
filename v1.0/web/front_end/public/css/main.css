@@ -284,6 +284,7 @@ img{
 }
 #diaLogAlertModal .modal-content {
     background-color:  #000000;
+    background: transparent;
 }
 #diaLogModal .modal-dialog .modal-top {
     background: #4667ab none repeat scroll 0 0;

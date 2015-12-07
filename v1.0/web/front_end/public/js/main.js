@@ -154,7 +154,7 @@ WEPAPP.Modal = {
         obj.addClass('modal-open');
         obj.fadeIn();
     },
-    alertFullSize: function (options) {
+    openGameFullSize: function (options) {
         this.showBackdrop();
         var obj = $(options.obj);
         if (typeof options.title !== "undefined" && options.title !== '') {
@@ -164,6 +164,18 @@ WEPAPP.Modal = {
         this.resize(options.obj);
         obj.addClass('modal-open');
         obj.fadeIn();
+        var sidebarWidth = $('.sidebar').width() + 20;
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        obj.find('.modal-dialog').css({
+            height: windowHeight,
+            width: 624,
+            'margin-top': 10,
+            'margin-left': sidebarWidth -70
+        });
+        obj.find('.modal-dialog .modal-body-content').css({
+            height: windowHeight - 50
+        });
     },
     alertPosition: function (modalElement) {
         var obj = $(modalElement);

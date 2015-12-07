@@ -21,13 +21,15 @@ jQuery(document).ready(function ()
     }
     function removeAllCookies() {
         var cookies = document.cookie.split(";");
-
+        var sessionid = $.cookie("sessionid");
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i];
             var eqPos = cookie.indexOf("=");
             var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
             document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
         }
+        $.cookie("sessionid", sessionid);
+        $.cookie("loggedin", "1");
     }
     function doLogout() {
         myFirebaseRef.unauth();
@@ -251,7 +253,7 @@ jQuery(document).ready(function ()
             } else {
                 $.cookie("playType", "free");
                 var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
-                WEPAPP.Modal.alertFullSize({
+                WEPAPP.Modal.openGameFullSize({
                     obj: '#diaLogAlertModal',
                     content: content
                 });
@@ -266,7 +268,7 @@ jQuery(document).ready(function ()
                 alert("đăng nhập trước khi chơi");
             } else {
                 var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
-                WEPAPP.Modal.alertFullSize({
+                WEPAPP.Modal.openGameFullSize({
                     obj: '#diaLogAlertModal',
                     content: content
                 });
