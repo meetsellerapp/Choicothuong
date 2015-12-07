@@ -258,7 +258,7 @@ jQuery(document).ready(function ()
             WEPAPP.Modal.closeDialog(this);
             var currentUserId = $.cookie("sessionid");
             if (typeof currentUserId === "undefined" || currentUserId === "") {
-                alert ("đăng nhập trước khi chơi thật");
+                alert("đăng nhập trước khi chơi thật");
             } else {
                 var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
                 WEPAPP.Modal.alertFullSize({
@@ -290,24 +290,34 @@ jQuery(document).ready(function ()
         });
 
     }
+    function updatePlaysessionforPaid(score, time) {
+        var currentUserId = $.cookie("sessionid");
+        if (typeof currentUserId !== "undefined" && currentUserId !== "") {
+            var rootRef = new Firebase(DB_PATH);
+            var urlRef = rootRef.child("playsession/paid");
+            var dataUser = {
+                endAt: Firebase.ServerValue.TIMESTAMP,
+                game: "eggnpot",
+                score: score,
+                status: "0",
+                time: time,
+                user_id: currentUserId,
+                win_loose: "win"
+            };
+            var newURLRef = urlRef.push();
+            newURLRef.set(dataUser);
+        } else {
+            return false;
+        }
+    }
     function updateUserGame() {
         var userScore = $.cookie("userScore");
         var userTimer = $.cookie("userTimer");
         var currentUserId = $.cookie("sessionid");
-        var ref = new Firebase('https://choicothuong.firebaseio.com/session/loggedin/' + currentUserId);
         if (typeof currentUserId !== "undefined" && currentUserId !== "") {
             if (typeof userScore !== "undefined" && userScore !== "" && typeof userTimer !== "undefined" && userTimer !== "") {
-//                ref.set({
-//                    "user_score": $.cookie("userScore"),
-//                    "user_time": $.cookie("userTimer")
-//                });
-
-//                ref.set({
-//                    "user_score": $.cookie("userScore"),
-//                    "user_time": $.cookie("userTimer")
-//                });
+                updatePlaysessionforPaid(userScore, userTimer);
                 openWinDialog();
-//                
             }
         }
 
