@@ -121,7 +121,6 @@ jQuery(document).ready(function ()
         });
         var userGameref = new Firebase("https://choicothuong.firebaseio.com/usertopscore/" + currentUserId + "/eggnpot");
         userGameref.on('value', function (snap) {
-            console.log("user top score " + snap.val().score);
             $.cookie("top_score", snap.val().score); //user top score
             $.cookie("top_score_time", snap.val().time); // //user top score time
         });
@@ -245,20 +244,26 @@ jQuery(document).ready(function ()
             });
         });
         $("#btnPlayFree").click(function () {
+            var currentUserId = $.cookie("sessionid");
             WEPAPP.Modal.closeDialog(this);
-            $.cookie("playType", "free");
-            var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
-            WEPAPP.Modal.alertFullSize({
-                obj: '#diaLogAlertModal',
-                content: content
-            });
+            if (typeof currentUserId === "undefined" || currentUserId === "") {
+                alert("đăng nhập trước khi chơi");
+            } else {
+                $.cookie("playType", "free");
+                var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
+                WEPAPP.Modal.alertFullSize({
+                    obj: '#diaLogAlertModal',
+                    content: content
+                });
+            }
+
 
         });
         $("#btnPlayCoin").click(function () {
             WEPAPP.Modal.closeDialog(this);
             var currentUserId = $.cookie("sessionid");
             if (typeof currentUserId === "undefined" || currentUserId === "") {
-                alert("đăng nhập trước khi chơi thật");
+                alert("đăng nhập trước khi chơi");
             } else {
                 var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
                 WEPAPP.Modal.alertFullSize({

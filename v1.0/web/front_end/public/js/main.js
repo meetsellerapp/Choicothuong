@@ -107,7 +107,16 @@ WEPAPP.Modal = {
         if ($('body').find('.modal.modal-open').length < 1) {
             this.hideBackdrop();
         }
-//        $( ".modal-body-content" ).empty();
+        return false;
+    },
+    deleteDialog: function (obj) {
+        $(obj).removeClass('modal-open');
+        $(obj).closest('.modal').fadeOut();
+        $(obj).closest('.modal').removeClass('modal-open');
+        if ($('body').find('.modal.modal-open').length < 1) {
+            this.hideBackdrop();
+        }
+        $( ".modal-body-content" ).empty();
         return false;
     },
     showBackdrop: function () {
