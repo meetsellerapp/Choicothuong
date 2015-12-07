@@ -107,7 +107,7 @@ WEPAPP.Modal = {
         if ($('body').find('.modal.modal-open').length < 1) {
             this.hideBackdrop();
         }
-        $( ".modal-body-content" ).empty();
+//        $( ".modal-body-content" ).empty();
         return false;
     },
     showBackdrop: function () {
@@ -187,7 +187,7 @@ WEPAPP.Modal = {
             'margin-left': sidebarWidth
         });
         obj.find('.modal-dialog .modal-body-content').css({
-            height: windowHeight - 100
+            height: windowHeight - 30
         });
     }
 
