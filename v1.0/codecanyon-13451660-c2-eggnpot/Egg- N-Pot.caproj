@@ -670,27 +670,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite5" sid="5397060222981338">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1391922890110434" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\programming\freelancer\Choicothuong\v1.0\codecanyon-13451660-c2-eggnpot\image\10.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="ground3" sid="7217635669229466">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Solid" sid="1063605888310705">
-                    <behavior id="solid" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2474114876202752" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
     </object-folder>
     <families />
     <layout-folder>
