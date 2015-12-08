@@ -272,6 +272,16 @@ img{
     width: 30px;
     z-index: 10;
 }
+#dialogLeaderBoardModal button.close {
+    background: rgba(0, 0, 0, 0) url("../img/icon-close.png") no-repeat scroll center center;
+    color: transparent;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 1px;
+    width: 30px;
+    z-index: 10;
+}
 #diaLogAlertModal button.close {
     background: rgba(0, 0, 0, 0) url("../img/icon-close.png") no-repeat scroll center center;
     color: transparent;
@@ -285,6 +295,16 @@ img{
 #diaLogAlertModal .modal-content {
     background-color:  #000000;
     background: transparent;
+}
+#dialogLeaderBoardModal .modal-content {
+    background-color:  #000000;
+    background: transparent;
+}
+#dialogLeaderBoardModal table tr td {
+    font-size: 14px;
+    color: white;
+    text-align: left;
+    margin-bottom: 10px;
 }
 #diaLogModal .modal-dialog .modal-top {
     background: #4667ab none repeat scroll 0 0;
@@ -405,7 +425,7 @@ img{
     margin-bottom: 5px;
 }
 #diaLogAlertModal .modal-body-content {
-    
+
     padding-top: 20px;
 }
 #diaLogAlertModal .modal-body-content p{

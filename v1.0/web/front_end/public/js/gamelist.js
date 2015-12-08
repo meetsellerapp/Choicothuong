@@ -233,11 +233,21 @@ jQuery(document).ready(function ()
             content: ""
         });
     }
+    function openLeaderBoard() {
+        
+        WEPAPP.Modal.alertWithoutRender({
+            obj: '#dialogLeaderBoardModal',
+            content: ""
+        });
+        $.cookie("clickleader" , "");
+        WEPAPP.Modal.closeDialog("#diaLogAlertModal");
+    }
     function openGame(listGame) {
         $(".btn-playGame").click(function () {
             var idGame = $(this).data("id");
             if (idGame === 1) {
                 openChoosePlayType();
+//                openLeaderBoard();
             }
             $.each(listGame, function (key, value) {
                 if (idGame === value.index) {
@@ -333,6 +343,9 @@ jQuery(document).ready(function ()
     getallGames();
     setInterval(function () {
         updateUserGame();
+        if (parseInt($.cookie("clickleader")) === 1) {
+            openLeaderBoard();
+        }
     }, 1000); // every 5 sec
     removeAllCookies();
 });

@@ -153,6 +153,11 @@ WEPAPP.Modal = {
         this.alertPosition(options.obj);
         obj.addClass('modal-open');
         obj.fadeIn();
+        var sidebarWidth = $('.sidebar').width() + 20;
+        obj.find('.modal-dialog').css({
+            
+            'margin-left': sidebarWidth -70
+        });
     },
     openGameFullSize: function (options) {
         this.showBackdrop();
