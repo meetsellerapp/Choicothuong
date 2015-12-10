@@ -172,11 +172,11 @@ jQuery(document).ready(function ()
         return dollars;
     }
     function setCookieGame(game) {
-//        $.cookie("top_score", game.top_score);
+        $.cookie("top_score", game.top_score);
         $.cookie("top_score_id", game.top_score_id);
-//        $.cookie("top_score_time", game.top_score_time);
+        $.cookie("top_score_time", game.top_score_time);
         var topPrice = parseFloat(game.prize_number);
-        $.cookie("prize_number", toUSD(topPrice));
+        $.cookie("prize_number", game.prize_number);
         $.cookie("prize_str", game.prize_str);
     }
     function renderListGame(data) {
