@@ -895,7 +895,7 @@
                 </instance>
                 <instance type="txttopscore" uid="41">
                     <properties>
-                        <text>Text</text>
+                        <text></text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-48,400,0</font>
                         <color>255,0,0</color>
@@ -908,7 +908,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>911</x>
                         <y>576</y>
                         <z>0</z>
                         <width>256</width>
@@ -1020,7 +1020,7 @@
                 </instance>
                 <instance type="txtusername" uid="43">
                     <properties>
-                        <text>Text</text>
+                        <text></text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-19,400,0</font>
                         <color>255,255,255</color>
@@ -1034,7 +1034,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
-                        <y>89</y>
+                        <y>76</y>
                         <z>0</z>
                         <width>224</width>
                         <height>64</height>
@@ -1056,9 +1056,9 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>992</x>
-                        <y>256</y>
+                        <y>266.799987793</y>
                         <z>0</z>
-                        <width>192</width>
+                        <width>224</width>
                         <height>192</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
@@ -1077,8 +1077,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>928</x>
-                        <y>128</y>
+                        <x>912</x>
+                        <y>149</y>
                         <z>0</z>
                         <width>24</width>
                         <height>24</height>
@@ -1091,7 +1091,7 @@
                 </instance>
                 <instance type="txtusercoin" uid="46">
                     <properties>
-                        <text>Text</text>
+                        <text></text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-19,400,0</font>
                         <color>255,255,255</color>
@@ -1104,8 +1104,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>952</x>
-                        <y>117</y>
+                        <x>936</x>
+                        <y>135</y>
                         <z>0</z>
                         <width>192</width>
                         <height>32</height>
@@ -1153,7 +1153,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>864</x>
+                        <x>870.400024414</x>
                         <y>608</y>
                         <z>0</z>
                         <width>64</width>

@@ -705,28 +705,73 @@
                         <action id="0" name="Set text" sid="8782482672903387" type="txttopprize">
                             <param id="0" name="Text">&quot;&quot; &amp; Cookie.value &amp; &quot;Đ&quot;</param>
                         </action>
+                        <action id="2" name="Get Cookie" sid="2199773986049166" type="Cookie">
+                            <param id="0" name="name">&quot;sessionid&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3739869419392215">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="6181658992995519" type="System">
+                            <param id="0" name="First value">Cookie.value</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">&quot;undefined&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
                         <action id="2" name="Get Cookie" sid="2735025957845658" type="Cookie">
                             <param id="0" name="name">&quot;user_name&quot;</param>
                         </action>
                         <action id="0" name="Set text" sid="213344697454017" type="txtusername">
                             <param id="0" name="Text">&quot;&quot; &amp; Cookie.value</param>
                         </action>
-                        <action id="2" name="Get Cookie" sid="885293852436989" type="Cookie">
-                            <param id="0" name="name">&quot;currentUserId&quot;</param>
-                        </action>
-                        <action id="10" name="Load image from URL" sid="8694518804527995" type="useravatar">
-                            <param id="0" name="URI">&quot;http://graph.facebook.com/&quot; &amp; Cookie.value &amp;&quot;/picture?type=normal&quot;</param>
-                            <param id="1" name="Size">1</param>
-                        </action>
-                        <action id="10" name="Load image from URL" sid="9670141118049313" type="useravatarsmall">
-                            <param id="0" name="URI">&quot;http://graph.facebook.com/&quot; &amp; Cookie.value &amp;&quot;/picture?type=normal&quot;</param>
-                            <param id="1" name="Size">1</param>
-                        </action>
                         <action id="2" name="Get Cookie" sid="8657495560312718" type="Cookie">
                             <param id="0" name="name">&quot;user_coin&quot;</param>
                         </action>
                         <action id="0" name="Set text" sid="9101420041740999" type="txtusercoin">
                             <param id="0" name="Text">&quot;&quot; &amp; Cookie.value</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="1158494308927925" type="Sprite4">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="2" name="Get Cookie" sid="885293852436989" type="Cookie">
+                            <param id="0" name="name">&quot;currentUserId&quot;</param>
+                        </action>
+                        <action id="10" name="Load image from URL" sid="1305047545966541" type="useravatar">
+                            <param id="0" name="URI">&quot;http://graph.facebook.com/&quot; &amp; Cookie.value &amp;&quot;/picture?type=normal&quot;</param>
+                            <param id="1" name="Size">1</param>
+                        </action>
+                        <action id="10" name="Load image from URL" sid="1222434619698409" type="useravatarsmall">
+                            <param id="0" name="URI">&quot;http://graph.facebook.com/&quot; &amp; Cookie.value &amp;&quot;/picture?type=normal&quot;</param>
+                            <param id="1" name="Size">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4644766862942825">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="4385391094488735" type="System">
+                            <param id="0" name="First value">Cookie.value</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;undefined&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="10" name="Load image from URL" sid="2255548852647595" type="useravatar">
+                            <param id="0" name="URI">&quot;http://demo.patternlab.io/images/fpo_avatar.png&quot;</param>
+                            <param id="1" name="Size">1</param>
+                        </action>
+                        <action id="10" name="Load image from URL" sid="5157449046298522" type="useravatarsmall">
+                            <param id="0" name="URI">&quot;http://demo.patternlab.io/images/fpo_avatar.png&quot;</param>
+                            <param id="1" name="Size">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4780884792226451" type="Sprite4">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="7082111117101981" type="txtusername">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="2463277192315402" type="txtusercoin">
+                            <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
