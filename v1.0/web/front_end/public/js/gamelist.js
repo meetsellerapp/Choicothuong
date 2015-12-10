@@ -339,6 +339,7 @@ jQuery(document).ready(function ()
         }
 
     }
+	removeAllCookies();
     initDBconnection();
     getallGames();
     setInterval(function () {
@@ -347,6 +348,6 @@ jQuery(document).ready(function ()
             openLeaderBoard();
         }
     }, 1000); // every 5 sec
-    removeAllCookies();
+    //removeAllCookies();
 });
 
