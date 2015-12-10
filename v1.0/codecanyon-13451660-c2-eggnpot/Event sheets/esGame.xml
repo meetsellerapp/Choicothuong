@@ -1095,6 +1095,20 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="1442248734786718">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="9491460950626812" type="Touch">
+                            <param id="0" name="Object">Sprite6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set Cookie" sid="8020855490123798" type="Cookie">
+                            <param id="0" name="name">&quot;clickleader&quot;</param>
+                            <param id="1" name="value">&quot;1&quot;</param>
+                            <param id="2" name="days">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <comment>laoding the game objects at run time</comment>
@@ -1189,6 +1203,10 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="929463974195703">
+            <conditions />
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>
