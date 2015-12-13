@@ -173,13 +173,14 @@ WEPAPP.Modal = {
         var windowHeight = $(window).height();
         var windowWidth = $(window).width();
         obj.find('.modal-dialog').css({
-            height: windowHeight,
-            width: 624,
+            height: 490,
+            width: 515,
             'margin-top': 10,
             'margin-left': sidebarWidth -70
         });
         obj.find('.modal-dialog .modal-body-content').css({
-            height: windowHeight - 50
+            height: 730,
+			width: 500
         });
     },
     alertPosition: function (modalElement) {

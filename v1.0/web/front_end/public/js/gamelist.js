@@ -262,7 +262,7 @@ jQuery(document).ready(function ()
                 alert("đăng nhập trước khi chơi");
             } else {
                 $.cookie("playType", "free");
-                var content = "<iframe width='100%' height='100%' frameborder ='0' src ='/EggnPot'></iframe>";
+                var content = "<iframe width='480px' height='720px' frameborder ='0' src ='/EggnPot'></iframe>";
                 WEPAPP.Modal.openGameFullSize({
                     obj: '#diaLogAlertModal',
                     content: content
