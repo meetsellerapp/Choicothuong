@@ -11,6 +11,7 @@
     <saved-with-version>21600</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -508,6 +509,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Browser" sid="2221351663286846">
+            <plugin id="Browser" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -538,6 +542,7 @@
             </properties>
         </global-instance>
         <global-instance type="Function" uid="11" />
+        <global-instance type="Browser" uid="16" />
     </global-instances>
     <sounds-folder>
         <file name="pot.m4a" />

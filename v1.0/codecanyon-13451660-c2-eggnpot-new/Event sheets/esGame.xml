@@ -24,7 +24,7 @@
         <variable constant="0" name="potNums" sid="5905965488856067" static="0" type="number">0</variable>
         <comment>extra</comment>
         <variable constant="0" name="score" sid="8846974047488092" static="0" type="number">0</variable>
-        <variable constant="0" name="gameTimer" sid="9203877797478242" static="0" type="number">60</variable>
+        <variable constant="0" name="gameTimer" sid="9203877797478242" static="0" type="number">0</variable>
         <variable constant="0" name="gameINIT" sid="3192284905707338" static="0" type="number">0</variable>
         <comment></comment>
         <comment>All the objects that are to be created at runtime are destoyed.</comment>
@@ -222,6 +222,9 @@
                             <param id="0" name="Key">38 (Up arrow)</param>
                         </condition>
                         <condition id="14" name="On tap" sid="551374454297932" type="Touch" />
+                        <condition id="0" name="On key pressed" sid="427186553221953" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action behavior="Solid" id="0" name="Set enabled" sid="1847471508160524" type="pot">
@@ -256,6 +259,9 @@
                         </action>
                         <action behavior="Platform" id="4" name="Set jump strength" sid="5344671378538472" type="eggShadow">
                             <param id="0" name="Jump strength">1200</param>
+                        </action>
+                        <action id="17" name="Execute Javascript" sid="7680422935869293" type="Browser">
+                            <param id="0" name="Javascript">&quot;startGame();&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -640,7 +646,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Subtract from" sid="3185037495805438" type="System">
+                        <action id="-10" name="Add to" sid="3185037495805438" type="System">
                             <param id="0" name="Variable">gameTimer</param>
                             <param id="1" name="Value">1</param>
                         </action>
@@ -664,6 +670,9 @@
                         </action>
                         <action id="0" name="Set text" sid="4191636324851738" type="timer">
                             <param id="0" name="Text">gameTimer</param>
+                        </action>
+                        <action id="17" name="Execute Javascript" sid="3211007610055491" type="Browser">
+                            <param id="0" name="Javascript">&quot;updateTimeScore(&quot;&amp;gameTimer&amp;&quot;, &quot;&amp; score &amp;&quot;);&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -734,8 +743,8 @@
                         </condition>
                         <condition id="-14" name="Compare variable" sid="8889897099857227" type="System">
                             <param id="0" name="Variable">gameTimer</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">86400</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -789,6 +798,9 @@
                                 <action id="-18" name="Set layer opacity" sid="533598845238973" type="System">
                                     <param id="0" name="Layer">0</param>
                                     <param id="1" name="Opacity">20</param>
+                                </action>
+                                <action id="17" name="Execute Javascript" sid="719513433338367" type="Browser">
+                                    <param id="0" name="Javascript">&quot;updateFinalTimeScore(&quot;&amp;gameTimer&amp;&quot;, &quot;&amp; score &amp;&quot;);&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -844,6 +856,9 @@
                                 <action id="-18" name="Set layer opacity" sid="9531790177955819" type="System">
                                     <param id="0" name="Layer">0</param>
                                     <param id="1" name="Opacity">20</param>
+                                </action>
+                                <action id="17" name="Execute Javascript" sid="3618350257116526" type="Browser">
+                                    <param id="0" name="Javascript">&quot;updateFinalTimeScore(&quot;&amp;gameTimer&amp;&quot;, &quot;&amp; score &amp;&quot;);&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
