@@ -1,0 +1,1111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>esGame</name>
+    <events>
+        <comment>grid creation vaiables</comment>
+        <comment># Info</comment>
+        <comment># C2 Egg-&amp;-Pot</comment>
+        <comment>First of all I want to thank you for buying my item. I hope it helps you making some good stuff with construct 2 game engine. If you have any questions or if you need further help, don&apos;t hesitate to contact me</comment>
+        <comment>@author: Sanjib Nanda</comment>
+        <comment>@email: sanjib.nanda@gmail.com(for questions and support!)</comment>
+        <comment># Function</comment>
+        <comment>Egg N Pot is a coolest game to improve your reaction time with clicks and tap. Throw the egg into the moving pots. Have Fun.</comment>
+        <comment># How to Play?</comment>
+        <comment>Throw the egg into the moving pots. &#x0D;&#x0A;Do not miss the pot or  let it fall to ground.&#x0D;&#x0A;Up Arrow or Tap to throw egg.&#x0D;&#x0A;</comment>
+        <comment>Egg and pot creation vaiables</comment>
+        <variable constant="0" name="rowSize" sid="7886555140740432" static="0" type="number">1</variable>
+        <variable constant="0" name="width" sid="3995348302836921" static="0" type="number">20</variable>
+        <variable constant="0" name="height" sid="9771203258794322" static="0" type="number">320</variable>
+        <variable constant="0" name="yOffset" sid="431980544814395" static="0" type="number">320</variable>
+        <variable constant="0" name="xOffset" sid="1095802774437357" static="0" type="number">480</variable>
+        <comment>game vaiables</comment>
+        <variable comment="number of eggs to be created. take care of layout size if you are increasing the number" constant="0" name="maxPots" sid="607500960073656" static="0" type="number">13</variable>
+        <variable constant="0" name="potNums" sid="5905965488856067" static="0" type="number">0</variable>
+        <comment>extra</comment>
+        <variable constant="0" name="score" sid="8846974047488092" static="0" type="number">0</variable>
+        <variable constant="0" name="gameTimer" sid="9203877797478242" static="0" type="number">60</variable>
+        <variable constant="0" name="gameINIT" sid="3192284905707338" static="0" type="number">0</variable>
+        <comment></comment>
+        <comment>All the objects that are to be created at runtime are destoyed.</comment>
+        <event-block sid="6241630551814671">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6579490415328457" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="7729886110287604" type="Audio">
+                    <param id="0" name="Audio file">chripLoop</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="9344200948335222">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7749117039150108" type="pot" />
+                        <action id="-9" name="Destroy" sid="9799278547669254" type="potShadow" />
+                        <action id="-9" name="Destroy" sid="2393749270068751" type="indicator" />
+                        <action id="-9" name="Destroy" sid="5665660035652642" type="indicator2" />
+                        <action id="-9" name="Destroy" sid="5614693386297929" type="info" />
+                        <action id="-9" name="Destroy" sid="2124281684156555" type="gameOver" />
+                        <action id="2" name="Stop" sid="4277095458448505" type="egg" />
+                        <action behavior="Solid" id="0" name="Set enabled" sid="7098342992083289" type="potShadow">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="4150126229979733" type="System">
+                            <param id="0" name="Group name">&quot;falling&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="2662534371980847" type="System">
+                            <param id="0" name="Group name">&quot;timer&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="4936272416218008" type="Function">
+                            <param id="0" name="Name">&quot;loadGame&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Intially deactivated. This determine the condtions at falling of platform</comment>
+        <event-group description="" inactive="1" sid="3181108629794415" title="falling">
+            <sub-events>
+                <event-block sid="9133179936788735">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="2064321951337683" type="eggShadow" />
+                        <condition id="1" name="Is overlapping another object" sid="6809908447654769" type="eggShadow">
+                            <param id="0" name="Object">pot</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Rotate" id="0" name="Set speed" sid="7346893787818958" type="egg">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="7010904786716548" type="egg">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5752962962815095">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7907889556963136" type="System">
+                                    <param id="0" name="Variable">gameINIT</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="5258395082458477" type="eggShadow">
+                                    <param id="0" name="Object">pot</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="2091975565476974" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="8948085722992824" type="pot">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="7035458935240775" type="System">
+                                    <param id="0" name="Group name">&quot;timer&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3021864773061741">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="9052961986561517" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="4193629181652713" type="egg">
+                                    <param id="0" name="Animation">&quot;shimmer&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="9047327982031236" type="Audio">
+                                    <param id="0" name="Audio file">pot</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>add socres once on falling on pot</comment>
+                        <event-block sid="9710194257172653">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3306048304045915" type="System">
+                                    <param id="0" name="Variable">gameINIT</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="5045210030056098" type="pot">
+                                    <param id="0" name="Instance variable">levelPos</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="5333304148884542" type="System">
+                                    <param id="0" name="Variable">score</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="534270382167142" type="pot">
+                                    <param id="0" name="Instance variable">levelPos</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="6359217284946931">
+                                    <conditions>
+                                        <condition id="-34" name="Pick by evaluate" sid="9773941530046903" type="System">
+                                            <param id="0" name="Object">indicator</param>
+                                            <param id="1" name="Expression">indicator.setID=pot.setID</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="3713699005447635" type="indicator">
+                                            <param id="0" name="Instance variable">isDone</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="8602750429773331" type="indicator">
+                                            <param id="0" name="Instance variable">isDone</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="3991853510912589" type="indicator">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action behavior="Flash" id="0" name="Flash" sid="413053990628189" type="indicator">
+                                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                            <param id="2" name="Duration">1.0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3940952291616819">
+                                    <conditions>
+                                        <condition id="-34" name="Pick by evaluate" sid="4504666960882869" type="System">
+                                            <param id="0" name="Object">indicator2</param>
+                                            <param id="1" name="Expression">indicator2.setID=pot.setID</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="2939240669989768" type="indicator2">
+                                            <param id="0" name="Instance variable">isDone</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="2582849814027202" type="indicator2">
+                                            <param id="0" name="Instance variable">isDone</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="4648591644799243" type="indicator2">
+                                            <param id="0" name="Object">ok</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>game play logic.Here you can play with actions to manipulate the motion of pot, its speed,nature of sine wave etc.</comment>
+        <event-group description="" sid="8330226264787193" title="gamePlay">
+            <sub-events>
+                <event-block any="1" sid="2371633296833379">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="4013263947860527" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                        <condition id="14" name="On tap" sid="551374454297932" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="1847471508160524" type="pot">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="2471691638531236" type="potShadow">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="9201604241450166" type="System">
+                            <param id="0" name="Group name">&quot;falling&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="281929747368212" type="Audio">
+                            <param id="0" name="Audio file">throw</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="827365262856717" type="eggShadow">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="Rotate" id="0" name="Set speed" sid="6289740132428618" type="egg">
+                            <param id="0" name="Speed">360</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5704699266119409" type="potShadow">
+                            <param id="0" name="Instance variable">hasRun</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="171086215500134" type="System">
+                            <param id="0" name="Group name">&quot;everyTick&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="5344671378538472" type="eggShadow">
+                            <param id="0" name="Jump strength">1200</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="2728808044396644">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="8252198510060805" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=12</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="2146328591359004" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="1990796723329912" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="1966621967683921" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="6035312370394294" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6394535810560218" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7395067442193057">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="7333653583203498" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=11</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="9091711518550084" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="6012302792261503" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="6233093638745613" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Sine" id="1" name="Set period" sid="6067765482508931" type="potShadow">
+                                    <param id="0" name="Period">6</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="3090918106174938" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Sine" disabled="1" id="4" name="Set wave" sid="5908202927916584" type="potShadow">
+                                    <param id="0" name="Wave">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5386876695496641">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="1132534945348919" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=10</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1188003937712137" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="3489091618230718" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="8637661857026698" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="8775764523840565" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="591277536819455" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7550084836301715">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="865083175745388" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=9</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="6520474055891093" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="6921183859274467" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="6948123824400017" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4983159621388068" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3301613755933714">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="1083698800893515" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=8</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="9562560898952231" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="2055485409633779" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="9202667142472955" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="3504471125675892" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1834654292527717" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4550653809505904">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="8499067213196646" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=7</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="4372005749851356" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="2104199544289461" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Sine" id="0" name="Set active" sid="833012573638186" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="2726837731637769" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="664708204243385" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2495898278108185">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="7258776031782175" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=6</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="7706796782170951" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="7644406494612096" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="5199468742417673" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="2333927142113074" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1187511916716004" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="415152890763815">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="5401429881526746" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=5</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="756214935965772" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="744548878721455" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="2656414097596474" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="9045136851328757" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3161905103478874">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="3884950735067065" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=4</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="7746901447449773" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="72799228952491" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Sine" id="1" name="Set period" sid="3878304446989904" type="potShadow">
+                                    <param id="0" name="Period">2</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="5041754352098134" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="2122533782961894" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9091225709597454">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="5894276143187458" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=3</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1877386113472555" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="9450825224431149" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Sine" disabled="1" id="1" name="Set period" sid="2138065979595883" type="potShadow">
+                                    <param id="0" name="Period">2</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="854314293542441" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="476505266810733" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6967932700213153" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5198921284086673">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="4484272901317946" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=2</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="2431064202201876" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="5303527044663144" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Sine" disabled="1" id="1" name="Set period" sid="7788049577993564" type="potShadow">
+                                    <param id="0" name="Period">2</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="7479936247856344" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="5806819195789208" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4186430178202415">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="1821318893532666" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1213721694346802" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="3679907850531582" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="396350075934333" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="1089146272200595" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6052285909601395" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8277145124758567">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="9170735891099122" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="4501251436331642" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="4635768016445668" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="9920450322392027" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="1754117036788656" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Sine" id="4" name="Set wave" sid="5319314175707979" type="potShadow">
+                                    <param id="0" name="Wave">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4357642053959162" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="9987109980104469" title="timer">
+            <sub-events>
+                <event-block sid="7229906757365391">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="515040444002188" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="3185037495805438" type="System">
+                            <param id="0" name="Variable">gameTimer</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6754733734232613" title="everyTick">
+            <sub-events>
+                <event-block sid="1820690670493949">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="2955957880938912" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="3832254696815497" type="egg">
+                            <param id="0" name="Object">eggShadow</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1241269933298338" type="score">
+                            <param id="0" name="Text">score</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4191636324851738" type="timer">
+                            <param id="0" name="Text">gameTimer</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8030233640708125" title="system">
+            <sub-events>
+                <comment>fine control on scorllTo using a custom camer with lerp()</comment>
+                <event-block sid="679809847680171">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5283852670902986" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="1043527503721477" type="Camera">
+                            <param id="0" name="X">480</param>
+                            <param id="1" name="Y">lerp(self.y, eggShadow.y, 0.35)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3565570516527891">
+                    <conditions>
+                        <condition id="5" name="On any finished" sid="8220246685075457" type="egg" />
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="291680916944897" type="egg" />
+                        <action id="5" name="Set frame" sid="1089353747595694" type="egg">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>sets the game playable</comment>
+                <event-block sid="2078160079516815">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4414929771683537" type="eggShadow">
+                            <param id="0" name="Object">pot2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="6753248890913919" type="System">
+                            <param id="0" name="Group name">&quot;everyTick&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="6708851704885125" type="System">
+                            <param id="0" name="Group name">&quot;falling&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action behavior="Rotate" id="0" name="Set speed" sid="3362282670555368" type="egg">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="6657750164690365" type="egg">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4562822326839011" type="potShadow">
+                            <param id="0" name="Instance variable">hasRun</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8712542682710447" type="System">
+                            <param id="0" name="Variable">gameINIT</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>resets the game after the failed attempt</comment>
+                <event-block any="1" sid="9734570556860597">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="312925584884548" type="egg">
+                            <param id="0" name="Object">ground</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="8889897099857227" type="System">
+                            <param id="0" name="Variable">gameTimer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4638741936273755">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="4066974842132492" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="9800285757025182" type="System">
+                                    <param id="0" name="Object to create">gameOver</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">scrollx</param>
+                                    <param id="3" name="Y">scrolly</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="762657591149763" type="gameOver">
+                                    <param id="0" name="Object">brokenEgg</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="9181357727923424" type="System">
+                                    <param id="0" name="Group name">&quot;falling&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="5296943878459042" type="System">
+                                    <param id="0" name="Group name">&quot;gamePlay&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="7191805657076538" type="System">
+                                    <param id="0" name="Group name">&quot;timer&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2928134816009853" type="System">
+                                    <param id="0" name="Variable">gameINIT</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="3478832222523247" type="egg">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="2456521503209239" type="egg">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="7952138456685771" type="System">
+                                    <param id="0" name="Layer">3</param>
+                                    <param id="1" name="Opacity">20</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="105473174501308" type="System">
+                                    <param id="0" name="Layer">2</param>
+                                    <param id="1" name="Opacity">20</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="533598845238973" type="System">
+                                    <param id="0" name="Layer">0</param>
+                                    <param id="1" name="Opacity">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>complete the game, when user reaches the last egg</comment>
+                <event-block any="1" sid="5029751277437278">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6793062861775257" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">13</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6910243596754843">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="8817265760949006" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="7798384297260291" type="System">
+                                    <param id="0" name="Object to create">gameWin</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">scrollx</param>
+                                    <param id="3" name="Y">scrolly</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="5174958657829688" type="gameOver">
+                                    <param id="0" name="Object">gameWin</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="4021313647987614" type="System">
+                                    <param id="0" name="Group name">&quot;falling&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="5140617998839572" type="System">
+                                    <param id="0" name="Group name">&quot;gamePlay&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="8359944596057357" type="System">
+                                    <param id="0" name="Group name">&quot;timer&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="7105741183150133" type="System">
+                                    <param id="0" name="Layer">3</param>
+                                    <param id="1" name="Opacity">20</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="5640783744047437" type="System">
+                                    <param id="0" name="Layer">2</param>
+                                    <param id="1" name="Opacity">20</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="9531790177955819" type="System">
+                                    <param id="0" name="Layer">0</param>
+                                    <param id="1" name="Opacity">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="9155441627902039" title="touchControls">
+            <sub-events>
+                <event-block any="1" sid="3921757663670651">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="8878286500838889" type="Touch">
+                            <param id="0" name="Object">info</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="6669064132791662" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Set layer opacity" sid="2084164683541372" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="6976414066770694" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="2139830869854336" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="7342426336435821" type="System">
+                            <param id="0" name="Group name">&quot;gamePlay&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5378564152205666" type="info" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="6019120286468433">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="5818878969386624" type="Touch">
+                            <param id="0" name="Object">gameOver</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Set layer opacity" sid="5260684089463694" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="1524185543376673" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="260835748407301" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="6472355360629035" type="System" />
+                        <action id="-26" name="Restart layout" sid="5822903608865741" type="System" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="3955702273647408">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="2736633433831323" type="Touch">
+                            <param id="0" name="Object">gameWin</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Set layer opacity" sid="5129172075382258" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="2998715436347753" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="147532174288432" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="7323463977336696" type="System" />
+                        <action id="-26" name="Restart layout" sid="8181925022858836" type="System" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="1147037779988896">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="9269668442486898" type="Touch">
+                            <param id="0" name="Object">info2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="3672393671727324" type="info2" />
+                        <action id="-18" name="Set layer opacity" sid="9193930974967699" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="5145704789606153" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="3176519585636885" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2379973592371629">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="4909923154338675" type="Touch">
+                            <param id="0" name="Object">help</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="5330976838302202" type="System">
+                            <param id="0" name="Object to create">info</param>
+                            <param id="1" name="Layer">5</param>
+                            <param id="2" name="X">scrollx</param>
+                            <param id="3" name="Y">scrolly</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="4203017087556186" type="System">
+                            <param id="0" name="Group name">&quot;gamePlay&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="4592641222679867" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">20</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="7680332780998399" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">20</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="7603952563853702" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Opacity">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8968021115363216">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="8589692710526914" type="Touch">
+                            <param id="0" name="Object">about</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="9147602304399925" type="System">
+                            <param id="0" name="Object to create">info2</param>
+                            <param id="1" name="Layer">5</param>
+                            <param id="2" name="X">scrollx</param>
+                            <param id="3" name="Y">scrolly</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="8106062975308161" type="System">
+                            <param id="0" name="Group name">&quot;gamePlay&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="2340748434269546" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">20</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="6507266185040555" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">20</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="4304682367801377" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Opacity">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>laoding the game objects at run time</comment>
+        <event-block sid="4417534108911933">
+            <conditions>
+                <condition id="0" name="On function" sid="7751336200128591" type="Function">
+                    <param id="0" name="Name">&quot;loadGame&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="cellNumber" sid="2531860638166639" static="0" type="number">0</variable>
+                <comment>some commented code is useful for debuging</comment>
+                <event-block sid="1386454733313651">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="3999302468878336" type="System">
+                            <param id="0" name="Count">maxPots</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="8135713302074347" type="System">
+                            <param id="0" name="Seconds">0.02*loopindex</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="2933542789867604" type="System">
+                            <param id="0" name="Object to create">pot</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="X">xOffset+(potNums%rowSize)*width</param>
+                            <param id="3" name="Y">yOffset+floor(potNums/rowSize)*height</param>
+                        </action>
+                        <action disabled="1" id="-3" name="Create object" sid="4711785921214905" type="System">
+                            <param id="0" name="Object to create">eggId</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="X">xOffset+(potNums%rowSize)*width+200</param>
+                            <param id="3" name="Y">yOffset+floor(potNums/rowSize)*height+10</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="985408485480226" type="System">
+                            <param id="0" name="Object to create">potShadow</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="X">xOffset+(potNums%rowSize)*width</param>
+                            <param id="3" name="Y">yOffset+floor(potNums/rowSize)*height+10</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="1286218755241774" type="potShadow">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Jumpthru" id="0" name="Set enabled" sid="7967749880798217" type="potShadow">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4548690642232594" type="potShadow">
+                            <param id="0" name="Instance variable">setID</param>
+                            <param id="1" name="Value">potShadow.IID</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="7292679480576069" type="System">
+                            <param id="0" name="Object to create">indicator</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">xOffset+(potNums%rowSize)*width+272</param>
+                            <param id="3" name="Y">yOffset+floor(potNums/rowSize)*height+30</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="467300266879084" type="System">
+                            <param id="0" name="Object to create">indicator2</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">xOffset+(potNums%rowSize)*width-272</param>
+                            <param id="3" name="Y">yOffset+floor(potNums/rowSize)*height+30</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5402481441986933" type="indicator">
+                            <param id="0" name="Instance variable">setID</param>
+                            <param id="1" name="Value">indicator.IID</param>
+                        </action>
+                        <action id="2" name="Stop" sid="7246702057870085" type="indicator" />
+                        <action id="-10" name="Set value" sid="105557044420264" type="indicator2">
+                            <param id="0" name="Instance variable">setID</param>
+                            <param id="1" name="Value">indicator2.IID</param>
+                        </action>
+                        <action id="2" name="Stop" sid="2648925164244115" type="indicator2" />
+                        <action behavior="Pin" id="0" name="Pin to object" sid="1036604710402488" type="pot">
+                            <param id="0" name="Pin to">potShadow</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="228676325558886" type="pot">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5400680876597847" type="pot">
+                            <param id="0" name="Instance variable">setID</param>
+                            <param id="1" name="Value">pot.IID</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1059249410792882" type="eggId">
+                            <param id="0" name="Text">&quot;Id= &quot;&amp;potShadow.IID</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="5163020674734967" type="System">
+                            <param id="0" name="Variable">potNums</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

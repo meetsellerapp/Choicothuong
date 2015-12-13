@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout active="1" order="1">Game</layout>
+        <event-sheet order="2">esGame</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="1" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/bgShader/" />
+        <folder expanded="1" path="animation-folder/egg/" />
+        <folder expanded="1" path="animation-folder/potShadow/" />
+        <folder expanded="1" path="animation-folder/Camera/" />
+        <folder expanded="1" path="animation-folder/eggShadow/" />
+        <folder expanded="1" path="animation-folder/ground/" />
+        <folder expanded="1" path="animation-folder/pot/" />
+        <folder expanded="1" path="animation-folder/pot2/" />
+        <folder expanded="1" path="animation-folder/bgTitle/" />
+        <folder expanded="1" path="animation-folder/indicator/" />
+        <folder expanded="1" path="animation-folder/ok/" />
+        <folder expanded="1" path="animation-folder/indicator2/" />
+        <folder expanded="1" path="animation-folder/border/" />
+        <folder expanded="1" path="animation-folder/timerBG/" />
+        <folder expanded="1" path="animation-folder/scoreBG/" />
+        <folder expanded="1" path="animation-folder/title/" />
+        <folder expanded="1" path="animation-folder/start/" />
+        <folder expanded="1" path="animation-folder/start2/" />
+        <folder expanded="1" path="animation-folder/info/" />
+        <folder expanded="1" path="animation-folder/gameOver/" />
+        <folder expanded="1" path="animation-folder/gameWin/" />
+        <folder expanded="1" path="animation-folder/brokenEgg/" />
+        <folder expanded="1" path="animation-folder/about/" />
+        <folder expanded="1" path="animation-folder/help/" />
+        <folder expanded="1" path="animation-folder/info2/" />
+    </folders-expanded>
+</c2uistate>
