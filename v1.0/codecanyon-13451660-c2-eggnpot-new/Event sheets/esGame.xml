@@ -20,7 +20,7 @@
         <variable constant="0" name="yOffset" sid="431980544814395" static="0" type="number">320</variable>
         <variable constant="0" name="xOffset" sid="1095802774437357" static="0" type="number">480</variable>
         <comment>game vaiables</comment>
-        <variable comment="number of eggs to be created. take care of layout size if you are increasing the number" constant="0" name="maxPots" sid="607500960073656" static="0" type="number">19</variable>
+        <variable comment="number of eggs to be created. take care of layout size if you are increasing the number" constant="0" name="maxPots" sid="607500960073656" static="0" type="number">25</variable>
         <variable constant="0" name="potNums" sid="5905965488856067" static="0" type="number">0</variable>
         <comment>extra</comment>
         <variable constant="0" name="score" sid="8846974047488092" static="0" type="number">0</variable>
@@ -805,6 +805,183 @@
                                     <param id="0" name="Wave">1</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="2372051005627309" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4620662075171273">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="3767768099293967" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=19</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="7997888215162134" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="985508025008284" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Sine" disabled="1" id="1" name="Set period" sid="8853440941291922" type="potShadow">
+                                    <param id="0" name="Period">2</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="5497094753366215" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="2137537991908866" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4212636953394386">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="1627957062421316" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=20</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1131655996946132" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="1784735840203564" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="1267318968120825" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="1847255128414021" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Sine" id="4" name="Set wave" sid="2584733683671873" type="potShadow">
+                                    <param id="0" name="Wave">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8522837844558558" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="600843766813599">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="2855495862348372" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=21</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="5258207583243643" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="2175950442241906" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Sine" disabled="1" id="1" name="Set period" sid="2369059931001202" type="potShadow">
+                                    <param id="0" name="Period">2</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="68418984523973" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6939941410542129" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3221749666354987">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="351331631747467" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=22</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="70882303633605" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="4929240782734029" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="336505287066032" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="9773081923885466" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Sine" id="4" name="Set wave" sid="9550534043303612" type="potShadow">
+                                    <param id="0" name="Wave">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8090279406400717" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5554579755521829">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="1647416980663461" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=23</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="5796882641438866" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="3793497036235479" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Sine" disabled="1" id="1" name="Set period" sid="3549994535900226" type="potShadow">
+                                    <param id="0" name="Period">2</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="3196112677149402" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6002792094834408" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6329312034179333">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="5592308771540456" type="System">
+                                    <param id="0" name="Object">potShadow</param>
+                                    <param id="1" name="Expression">potShadow.setID=24</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="5088877730167304" type="potShadow">
+                                    <param id="0" name="Instance variable">hasRun</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="8479574880460928" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Jumpthru" id="0" name="Set enabled" sid="7485634850706077" type="potShadow">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="9428794438992827" type="potShadow">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Sine" id="4" name="Set wave" sid="5881186342140499" type="potShadow">
+                                    <param id="0" name="Wave">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="7612665016253647" type="potShadow">
                                     <param id="0" name="Instance variable">hasRun</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
