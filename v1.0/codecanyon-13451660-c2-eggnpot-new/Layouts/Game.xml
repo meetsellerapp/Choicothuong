@@ -5,7 +5,7 @@
     <event-sheet>esGame</event-sheet>
     <size>
         <width>960</width>
-        <height>8480</height>
+        <height>10432</height>
     </size>
     <margins>
         <horizontal>500</horizontal>
@@ -41,7 +41,7 @@
                         <y>0</y>
                         <z>0</z>
                         <width>960</width>
-                        <height>8480</height>
+                        <height>10432</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -66,8 +66,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>480</x>
-                        <y>8480</y>
+                        <x>448</x>
+                        <y>10400</y>
                         <z>0</z>
                         <width>864</width>
                         <height>32</height>
@@ -240,10 +240,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>480</x>
-                        <y>3784</y>
+                        <y>4256</y>
                         <z>0</z>
                         <width>640</width>
-                        <height>9408</height>
+                        <height>12352</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -394,7 +394,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>480</x>
-                        <y>8384</y>
+                        <y>10304</y>
                         <z>0</z>
                         <width>70</width>
                         <height>60</height>
