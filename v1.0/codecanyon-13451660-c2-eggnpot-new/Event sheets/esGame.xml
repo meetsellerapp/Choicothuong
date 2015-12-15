@@ -66,6 +66,9 @@
                             <param id="0" name="Name">&quot;loadGame&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
+                        <action id="17" name="Execute Javascript" sid="5432080538327944" type="Browser">
+                            <param id="0" name="Javascript">&quot;onGameLoad();&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -1829,6 +1832,71 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="2782507428614508">
+            <conditions>
+                <condition id="0" name="On function" sid="68817833506086" type="Function">
+                    <param id="0" name="Name">&quot;setLooseStatus&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="8002362882703761" type="System">
+                    <param id="0" name="Object to create">gameOver</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">scrollx</param>
+                    <param id="3" name="Y">scrolly</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="8645642842353661" type="gameOver">
+                    <param id="0" name="Object">brokenEgg</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="4004200262763814" type="System">
+                    <param id="0" name="Group name">&quot;falling&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="9404082727485908" type="System">
+                    <param id="0" name="Group name">&quot;gamePlay&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="4334808567064537" type="System">
+                    <param id="0" name="Group name">&quot;timer&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1388152556385766" type="System">
+                    <param id="0" name="Variable">gameINIT</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Rotate" id="0" name="Set speed" sid="3469180703065744" type="egg">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="6762857198249179" type="egg">
+                    <param id="0" name="Angle">0</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="5108961170465137" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Opacity">20</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="8178963215528502" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Opacity">20</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="906624470256823" type="System">
+                    <param id="0" name="Layer">0</param>
+                    <param id="1" name="Opacity">20</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8621883337255842">
+            <conditions>
+                <condition id="0" name="On clicked" sid="1835124486516504" type="Button" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="9625383698189018" type="Function">
+                    <param id="0" name="Name">&quot;setLooseStatus&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
