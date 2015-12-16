@@ -69,6 +69,9 @@
                         <action id="17" name="Execute Javascript" sid="5432080538327944" type="Browser">
                             <param id="0" name="Javascript">&quot;onGameLoad();&quot;</param>
                         </action>
+                        <action id="17" name="Execute Javascript" sid="3301579419479841" type="Browser">
+                            <param id="0" name="Javascript">&quot;choosePlayOption();&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -1523,7 +1526,7 @@
                         <condition id="-14" name="Compare variable" sid="6793062861775257" type="System">
                             <param id="0" name="Variable">score</param>
                             <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Value">13</param>
+                            <param id="2" name="Value">40</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -1888,13 +1891,56 @@
             </actions>
         </event-block>
         <event-block sid="8621883337255842">
-            <conditions>
-                <condition id="0" name="On clicked" sid="1835124486516504" type="Button" />
-            </conditions>
+            <conditions />
             <actions>
                 <action id="0" name="Call function" sid="9625383698189018" type="Function">
                     <param id="0" name="Name">&quot;setLooseStatus&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1504333691251693">
+            <conditions>
+                <condition id="0" name="On function" sid="9572855760720177" type="Function">
+                    <param id="0" name="Name">&quot;startNewGame&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="1507207251965673" type="pot">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Solid" id="0" name="Set enabled" sid="8150038666434777" type="potShadow">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="4142781057424834" type="System">
+                    <param id="0" name="Group name">&quot;falling&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="0" name="Play" sid="3419777796813742" type="Audio">
+                    <param id="0" name="Audio file">throw</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="5602917766189834" type="eggShadow">
+                    <param id="0" name="Control">2</param>
+                </action>
+                <action behavior="Rotate" id="0" name="Set speed" sid="1979528919121124" type="egg">
+                    <param id="0" name="Speed">360</param>
+                </action>
+                <action id="-10" name="Set value" sid="1055841006099263" type="potShadow">
+                    <param id="0" name="Instance variable">hasRun</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="121116548614146" type="System">
+                    <param id="0" name="Group name">&quot;everyTick&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action behavior="Platform" id="4" name="Set jump strength" sid="5487281782072755" type="eggShadow">
+                    <param id="0" name="Jump strength">1200</param>
+                </action>
+                <action id="17" name="Execute Javascript" sid="5094588509480546" type="Browser">
+                    <param id="0" name="Javascript">&quot;startGame();&quot;</param>
                 </action>
             </actions>
         </event-block>
