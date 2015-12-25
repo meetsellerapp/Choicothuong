@@ -1890,15 +1890,6 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="8621883337255842">
-            <conditions />
-            <actions>
-                <action id="0" name="Call function" sid="9625383698189018" type="Function">
-                    <param id="0" name="Name">&quot;setLooseStatus&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="1504333691251693">
             <conditions>
                 <condition id="0" name="On function" sid="9572855760720177" type="Function">
